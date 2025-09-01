@@ -279,11 +279,11 @@
               <!-- Audio Podcast Button -->
               <div class="podcast-section" style="margin-top: 1rem;">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                  <button id="tts-play-btn" class="button is-small is-text" onclick="toggleTextToSpeech()" style="border: none; background: none; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #3273dc; text-decoration: underline; transition: all 0.2s ease;">
+                  <button id="tts-play-btn" class="button is-small is-text" onclick="toggleTextToSpeech()" style="border: none; background: none; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #6b7280; text-decoration: underline; transition: all 0.2s ease;">
                     <span class="icon is-small" style="margin-right: 0.25rem;">
                       <i id="tts-icon" class="fas fa-play"></i>
                     </span>
-                    <span id="tts-text">🎧 Listen to AI Summary</span>
+                    <span id="tts-text">Listen to AI Summary</span>
                   </button>
                   <span class="tag is-warning is-light" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">
                     <span class="icon is-small" style="margin-right: 0.25rem;">
@@ -436,15 +436,15 @@
             isSpeaking = true;
             ttsBtn.style.color = '#dc3545';
             ttsIcon.className = 'fas fa-stop';
-            ttsText.textContent = '🎧 Stop AI Summary';
+            ttsText.textContent = 'Stop AI Summary';
             ttsStatus.textContent = 'Reading case study summary...';
           } else {
             // Stop speaking
             stopSpeaking();
             isSpeaking = false;
-            ttsBtn.style.color = '#3273dc';
+            ttsBtn.style.color = '#6b7280';
             ttsIcon.className = 'fas fa-play';
-            ttsText.textContent = '🎧 Listen to AI Summary';
+            ttsText.textContent = 'Listen to AI Summary';
             ttsStatus.textContent = 'Click to hear the case study summary';
           }
         }
@@ -475,9 +475,9 @@
               const ttsText = document.getElementById('tts-text');
               const ttsStatus = document.getElementById('tts-status-text');
               
-              ttsBtn.style.color = '#3273dc';
+              ttsBtn.style.color = '#6b7280';
               ttsIcon.className = 'fas fa-play';
-              ttsText.textContent = '🎧 Listen to AI Summary';
+              ttsText.textContent = 'Listen to AI Summary';
               ttsStatus.textContent = 'Click to hear the case study summary';
             };
 
