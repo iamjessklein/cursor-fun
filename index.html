@@ -8,6 +8,7 @@
     <meta content="Jess Klein is a maker who focuses on mentorship, experimentation, open practices, learning through making, collaboration, and fostering communities." property="og:description">
     <title>Jess Klein is a maker</title>
     <link rel="stylesheet" href="https://jessicaklein.com/vendor/bulma/css/bulma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @font-face {
           font-family: 'Montserrat';
@@ -173,6 +174,44 @@
           display: inline-block;
           opacity: 1;
         }
+
+        /* Podcast button and player styles */
+        .podcast-section {
+          transition: all 0.3s ease;
+        }
+
+        .podcast-section button {
+          background: linear-gradient(135deg, #00d1b2, #209cee);
+          border: none;
+          color: white;
+          font-weight: 600;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+          transition: all 0.3s ease;
+        }
+
+        .podcast-section button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .podcast-section button:active {
+          transform: translateY(0);
+        }
+
+        #podcast-player {
+          animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        #firefox-podcast {
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -204,6 +243,32 @@
             <div class="content has-text-centered">
               <h2><a href="https://jessicaklein.com/project/firefox/">Hack Firefox</a></h2>
               <div class="is-jess-as-featured-in">as featured in <em>Mozilla</em></div>
+              
+              <!-- Audio Podcast Button -->
+              <div class="podcast-section" style="margin-top: 1rem;">
+                <button class="button is-small is-info is-rounded" onclick="togglePodcast()" style="margin-bottom: 0.5rem;">
+                  <span class="icon is-small">
+                    <i class="fas fa-play"></i>
+                  </span>
+                  <span>🎧 Listen to 2-min Case Study</span>
+                </button>
+                <div id="podcast-player" style="display: none; margin-top: 0.5rem;">
+                  <audio id="firefox-podcast" controls style="width: 100%; max-width: 300px;">
+                    <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADQABISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhI//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAA0C1lwG8AAAA" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <div class="audio-info" style="margin-top: 0.5rem; font-size: 0.75rem; color: #666;">
+                    <span class="icon is-small">
+                      <i class="fas fa-clock"></i>
+                    </span>
+                    <span>Duration: ~2 minutes</span>
+                  </div>
+                  <p class="is-size-7" style="margin-top: 0.5rem; color: #666;">
+                    <strong>Hack Firefox Case Study Summary:</strong><br>
+                    Jess Klein led Mozilla's Hack Firefox initiative, empowering users to customize and extend their browser experience. This project demonstrated how open-source principles could transform user engagement, allowing developers and enthusiasts to create add-ons, themes, and modifications that enhanced Firefox's functionality. The initiative fostered a community of makers who learned through experimentation and collaboration, embodying Jess's core values of mentorship and open practices.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -322,6 +387,23 @@
             window.addEventListener('resize', resize);
           });
         });
+
+        // Podcast toggle function
+        function togglePodcast() {
+          const player = document.getElementById('podcast-player');
+          const button = event.target.closest('button');
+          const icon = button.querySelector('i');
+          
+          if (player.style.display === 'none') {
+            player.style.display = 'block';
+            icon.className = 'fas fa-pause';
+            button.querySelector('span:last-child').textContent = '🎧 Hide Case Study';
+          } else {
+            player.style.display = 'none';
+            icon.className = 'fas fa-play';
+            button.querySelector('span:last-child').textContent = '🎧 Listen to 2-min Case Study';
+          }
+        }
     </script>
 </body>
 </html>
