@@ -1,36 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="keywords">
+    <meta content="Jess Klein is a maker" property="og:title">
+    <title>Jess Klein is a maker</title>
+    <link rel="stylesheet" href="https://jessicaklein.com/vendor/bulma/css/bulma.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          src: url("https://jessicaklein.com/vendor/montserrat/Montserrat-Regular.otf");
         }
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background-color: rgb(73, 130, 148);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          src: url("https://jessicaklein.com/vendor/montserrat/Montserrat-SemiBold.otf");
         }
-        h1 {
-            color: #333;
-            font-size: 3rem;
-            margin: 0;
+
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 700;
+          src: url("https://jessicaklein.com/vendor/montserrat/Montserrat-Bold.otf");
+        }
+
+        html {
+          /* This PNG is made by Tomislava Babić and taken from:
+           * https://www.toptal.com/designers/subtlepatterns/?s=hip+square */
+          background: url(https://jessicaklein.com/vendor/subtlepatterns/hip-square.png);
+        }
+
+        body, button, input, select, textarea {
+          font-family: 'Montserrat';
+        }
+
+        .content.is-jess-core-value {
+          margin-bottom: 0.75rem;
+        }
+
+        .jess-highlight-bg {
+          position: absolute;
+          transform: rotate(-4deg);
+        }
+
+        .jess-highlight-yellow {
+          background-color: rgba(243, 222, 135, 0.80);
+        }
+
+        .jess-highlight-blue {
+          background-color: rgba(90, 201, 238, 0.5);
+        }
+
+        .jess-highlight-pink {
+          background-color: rgba(231, 90, 238, 0.5);
+        }
+
+        .section.is-jess-header {
+          padding-top: 24px;
+          padding-bottom: 24px;
+          background: inherit;
+        }
+
+        .section.is-jess-header h1 a {
+          color: inherit;
+        }
+
+        .column.is-jess-project {
+          margin-top: 1em;
+        }
+
+        .column.is-jess-project h2 {
+          margin-top: 1rem;
+          font-size: 1em;
+          letter-spacing: 2px;
+          font-weight: 400;
+        }
+
+        .is-jess-as-featured-in {
+          margin-top: 2em;
+          color: gray;
+          text-transform: uppercase;
+          font-size: 0.66em;
+          letter-spacing: 4px;
+        }
+
+        .is-jess-as-featured-in em {
+          display: block;
+          letter-spacing: 0;
+          font-style: normal;
+          text-transform: none;
+        }
+
+        .column.is-jess-project h2 a {
+          color: inherit;
+        }
+
+        .content.is-jess-lowercase p {
+          text-transform: lowercase;
+        }
+
+        footer.footer {
+          padding-top: 24px;
+          padding-bottom: 24px;
+          background: inherit;
+        }
+
+        footer.footer a.icon img {
+          opacity: 0.5;
+          transition: opacity 0.25s;
+        }
+
+        footer.footer a.icon:hover img,
+        footer.footer a.icon:focus img {
+          opacity: 1.0;
+        }
+
+        footer.footer a.icon {
+          margin-right: 1rem;
+        }
+
+        footer.footer a.icon:last-child {
+          margin-right: 0;
+        }
+
+        .content h2 {
+          font-size: 1.5em;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+        }
+
+        strong {
+          font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello World</h1>
-    </div>
+    <section class="section is-jess-header">
+      <div class="container">
+        <div class="content">
+          <h1><a href="https://jessicaklein.com/"><strong>jessklein.is</strong> a <span data-jess-highlight="jess-highlight-yellow">maker</span></a></h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+
+        <div class="content has-text-centered is-jess-quote">
+          <p>
+            Hi, I'm Jess Klein. I think that good design should support:
+          </p>
+        </div>
+
+        <div class="columns">
+          <div class="column is-jess-project">
+            <div class="content has-text-centered is-jess-core-value">
+              <span data-jess-highlight="jess-highlight-pink">mentorship</span>
+            </div>
+            
+            <a href="https://jessicaklein.com/project/firefox/" aria-hidden="true" tabindex="-1">
+              <img src="https://jessicaklein.com/project/firefox/_featured.png" alt="">
+            </a>
+            <div class="content has-text-centered">
+              <h2><a href="https://jessicaklein.com/project/firefox/">Hack Firefox</a></h2>
+              <div class="is-jess-as-featured-in">as featured in <em>Mozilla</em></div>
+            </div>
+          </div>
+
+          <div class="column is-jess-project">
+            <div class="content has-text-centered is-jess-core-value">
+              <span data-jess-highlight="jess-highlight-pink">experimentation</span>
+            </div>
+            
+            <a href="https://jessicaklein.com/project/open-badges/" aria-hidden="true" tabindex="-1">
+              <img src="https://jessicaklein.com/project/open-badges/_featured.png" alt="">
+            </a>
+            <div class="content has-text-centered">
+              <h2><a href="https://jessicaklein.com/project/open-badges/">Open Badges</a></h2>
+              <div class="is-jess-as-featured-in">as featured in <em>The New York Times</em></div>
+            </div>
+          </div>
+
+          <div class="column is-jess-project">
+            <div class="content has-text-centered is-jess-core-value">
+              <span data-jess-highlight="jess-highlight-yellow">open practices</span>
+            </div>
+            
+            <a href="https://jessicaklein.com/project/hive/" aria-hidden="true" tabindex="-1">
+              <img src="https://jessicaklein.com/project/hive/_featured.png" alt="">
+            </a>
+            <div class="content has-text-centered">
+              <h2><a href="https://jessicaklein.com/project/hive/">Hive Learning Network</a></h2>
+              <div class="is-jess-as-featured-in">as featured in <em>The Department of Education</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-jess-project">
+            <div class="content has-text-centered is-jess-core-value">
+              <span data-jess-highlight="jess-highlight-blue">learning through making</span>
+            </div>
+            
+            <a href="https://jessicaklein.com/project/hackasaurus/" aria-hidden="true" tabindex="-1">
+              <img src="https://jessicaklein.com/project/hackasaurus/_featured.png" alt="">
+            </a>
+            <div class="content has-text-centered">
+              <h2><a href="https://jessicaklein.com/project/hackasaurus/">Hackasaurus</a></h2>
+              <div class="is-jess-as-featured-in">as featured in <em>The Atlantic</em></div>
+            </div>
+          </div>
+
+          <div class="column is-jess-project">
+            <div class="content has-text-centered is-jess-core-value">
+              <span data-jess-highlight="jess-highlight-blue">collaboration</span>
+            </div>
+            
+            <a href="https://jessicaklein.com/project/odk/" aria-hidden="true" tabindex="-1">
+              <img src="https://jessicaklein.com/project/odk/_featured.png" alt="">
+            </a>
+            <div class="content has-text-centered">
+              <h2><a href="https://jessicaklein.com/project/odk/">Open Design Kit</a></h2>
+              <div class="is-jess-as-featured-in">as featured in <em>The Creative Commons Summit</em></div>
+            </div>
+          </div>
+
+          <div class="column is-jess-project">
+            <div class="content has-text-centered is-jess-core-value">
+              <span data-jess-highlight="jess-highlight-pink">fostering communities</span>
+            </div>
+            
+            <a href="https://jessicaklein.com/project/rockaway/" aria-hidden="true" tabindex="-1">
+              <img src="https://jessicaklein.com/project/rockaway/_featured.png" alt="">
+            </a>
+            <div class="content has-text-centered">
+              <h2><a href="https://jessicaklein.com/project/rockaway/">Rockaway</a></h2>
+              <div class="is-jess-as-featured-in">as featured in <em>whitehouse.org</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content has-text-centered">
+          <a href="https://jessicaklein.com/zines/">View my zines</a>
+        </div>
+
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <a class="icon" href="https://twitter.com/iamjessklein"><img src="https://jessicaklein.com/vendor/simple-icons/twitter.svg" alt="Twitter"></a>
+            <a class="icon" href="https://www.instagram.com/iamjessklein/"><img src="https://jessicaklein.com/vendor/simple-icons/instagram.svg" alt="Instagram"></a>
+            <a class="icon" href="https://www.linkedin.com/in/iamjessklein/"><img src="https://jessicaklein.com/vendor/simple-icons/linkedin.svg" alt="LinkedIn"></a>
+            <a class="icon" href="https://github.com/iamjessklein"><img src="https://jessicaklein.com/vendor/simple-icons/github.svg" alt="GitHub"></a>
+            <a class="icon" href="mailto:iwonderhow@jessklein.is"><img src="https://jessicaklein.com/vendor/wikimedia/High-contrast-emblem-mail.svg"></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+          function setDimensions(el, bgEl) {
+            var rect = el.getBoundingClientRect();
+
+            bgEl.style.top = window.scrollY + rect.top - 4 + 'px';
+            bgEl.style.left = window.scrollX + rect.left - 4 + 'px';
+            bgEl.style.height = rect.height + 8 + 'px';
+            bgEl.style.width = rect.width + 8 + 'px';
+          }
+
+          document.querySelectorAll('[data-jess-highlight]').forEach(function(el) {
+            var bgEl = document.createElement('div');
+            var resize = setDimensions.bind(null, el, bgEl);
+
+            bgEl.className = 'jess-highlight-bg ' +
+                             el.getAttribute('data-jess-highlight');
+
+            document.body.insertBefore(bgEl, document.body.firstChild);
+
+            resize();
+            window.addEventListener('load', resize);
+            window.addEventListener('resize', resize);
+          });
+        });
+    </script>
 </body>
 </html>
