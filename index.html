@@ -240,43 +240,51 @@
 
         .audio-player-container {
           background: #f5f5f5;
-          padding: 1.5rem;
-          border-radius: 8px;
+          padding: 2rem;
+          border-radius: 12px;
           border: 1px solid #e8e8e8;
         }
 
-        .podcast-summary {
-          text-align: left;
-          padding: 0 1rem;
+        .audio-controls {
+          width: 100%;
         }
 
-        .podcast-summary h4 {
+        .audio-section, .tts-section {
           text-align: center;
-          color: #363636;
-          border-bottom: 2px solid #00d1b2;
-          padding-bottom: 0.5rem;
-        }
-
-        .text-to-speech-controls {
-          background: #f8f9fa;
-          padding: 1.5rem;
+          padding: 1rem;
+          background: white;
           border-radius: 8px;
-          border: 1px solid #e9ecef;
+          border: 1px solid #f0f0f0;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .text-to-speech-controls .button {
-          min-width: 150px;
+        .audio-section h5, .tts-section h5 {
+          color: #363636;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+
+        .divider {
+          opacity: 0.6;
+        }
+
+        .tts-section .button {
+          min-width: 140px;
           font-weight: 600;
           transition: all 0.3s ease;
         }
 
-        .text-to-speech-controls .button:hover {
+        .tts-section .button:hover {
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .tts-status {
           transition: all 0.3s ease;
+        }
+
+        .audio-info {
+          opacity: 0.8;
         }
     </style>
 </head>
@@ -477,7 +485,7 @@
             // Start speaking
             speakText(caseStudyText);
             isSpeaking = true;
-            ttsBtn.classList.remove('is-success');
+            ttsBtn.classList.remove('is-info');
             ttsBtn.classList.add('is-danger');
             ttsIcon.className = 'fas fa-stop';
             ttsText.textContent = 'Stop Summary';
@@ -486,8 +494,8 @@
             // Stop speaking
             stopSpeaking();
             isSpeaking = false;
-            ttsBtn.classList.remove('is-danger');
-            ttsBtn.classList.add('is-success');
+                          ttsBtn.classList.remove('is-danger');
+              ttsBtn.classList.add('is-info');
             ttsIcon.className = 'fas fa-play';
             ttsText.textContent = 'Play Summary';
             ttsStatus.textContent = 'Click to hear the case study summary';
@@ -521,7 +529,7 @@
               const ttsStatus = document.querySelector('.tts-status span:last-child');
               
               ttsBtn.classList.remove('is-danger');
-              ttsBtn.classList.add('is-success');
+              ttsBtn.classList.add('is-info');
               ttsIcon.className = 'fas fa-play';
               ttsText.textContent = 'Play Summary';
               ttsStatus.textContent = 'Click to hear the case study summary';
@@ -561,40 +569,55 @@
         <section class="modal-card-body">
           <div class="content has-text-centered">
             <div class="audio-player-container" style="margin-bottom: 2rem;">
-              <audio id="firefox-podcast" controls style="width: 100%; max-width: 400px;">
-                <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADQABISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhI//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAA0C1lwG8AAAA" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
-              <div class="audio-info" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                <span class="icon is-small">
-                  <i class="fas fa-clock"></i>
-                </span>
-                <span>Duration: ~2 minutes</span>
-              </div>
-            </div>
-            
-            <div class="podcast-summary">
-              <h4 class="title is-5" style="margin-bottom: 1rem; color: #363636;">
-                <span class="icon is-small" style="margin-right: 0.5rem;">
-                  <i class="fas fa-volume-up"></i>
-                </span>
-                Audio Case Study Summary
-              </h4>
-              <div class="text-to-speech-controls" style="text-align: center; margin-bottom: 1rem;">
-                <button id="tts-play-btn" class="button is-medium is-success is-rounded" onclick="toggleTextToSpeech()">
-                  <span class="icon is-medium">
-                    <i id="tts-icon" class="fas fa-play"></i>
-                  </span>
-                  <span id="tts-text">Play Summary</span>
-                </button>
-                <div class="tts-status" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
-                  <span class="icon is-small">
-                    <i class="fas fa-info-circle"></i>
-                  </span>
-                  <span>Click to hear the case study summary</span>
+              <div class="audio-controls" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                <!-- Audio File Player -->
+                <div class="audio-section">
+                  <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #363636;">
+                    <span class="icon is-small" style="margin-right: 0.5rem;">
+                      <i class="fas fa-music"></i>
+                    </span>
+                    Audio Podcast
+                  </h5>
+                  <audio id="firefox-podcast" controls style="width: 100%; max-width: 400px;">
+                    <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADQABISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhI//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAA0C1lwG8AAAA" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <div class="audio-info" style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                    <span class="icon is-small">
+                      <i class="fas fa-clock"></i>
+                    </span>
+                    <span>Duration: ~2 minutes</span>
+                  </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider" style="width: 80%; height: 1px; background: #e8e8e8; margin: 0.5rem 0;"></div>
+
+                <!-- Text-to-Speech Summary -->
+                <div class="tts-section">
+                  <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #363636;">
+                    <span class="icon is-small" style="margin-right: 0.5rem;">
+                      <i class="fas fa-volume-up"></i>
+                    </span>
+                    Audio Summary
+                  </h5>
+                  <button id="tts-play-btn" class="button is-medium is-info is-rounded" onclick="toggleTextToSpeech()">
+                    <span class="icon is-medium">
+                      <i id="tts-icon" class="fas fa-play"></i>
+                    </span>
+                    <span id="tts-text">Play Summary</span>
+                  </button>
+                  <div class="tts-status" style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                    <span class="icon is-small">
+                      <i class="fas fa-info-circle"></i>
+                    </span>
+                    <span id="tts-status-text">Click to hear the case study summary</span>
+                  </div>
                 </div>
               </div>
             </div>
+            
+
           </div>
         </section>
         <footer class="modal-card-foot">
