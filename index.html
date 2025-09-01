@@ -153,16 +153,7 @@
           animation: typing 2s steps(5, end) 1s forwards;
         }
 
-        .typing-text::after {
-          content: '';
-          position: absolute;
-          right: -2px;
-          top: 0;
-          height: 100%;
-          width: 2px;
-          background-color: #000;
-          animation: blink-caret 0.75s step-end infinite, move-cursor 2s steps(5, end) 1s forwards;
-        }
+
 
         @keyframes typing {
           from { 
@@ -173,42 +164,9 @@
           }
         }
 
-        @keyframes move-cursor {
-          from { 
-            right: 100%; 
-          }
-          to { 
-            right: -2px; 
-          }
-        }
 
-        @keyframes blink-caret {
-          from, to { 
-            background-color: transparent; 
-          }
-          50% { 
-            background-color: #000; 
-          }
-        }
 
         /* Firefox-specific fix for animations */
-        @-moz-keyframes move-cursor {
-          from { 
-            right: 100%; 
-          }
-          to { 
-            right: -2px; 
-          }
-        }
-
-        @-moz-keyframes blink-caret {
-          from, to { 
-            background-color: transparent; 
-          }
-          50% { 
-            background-color: #000; 
-          }
-        }
 
         /* Ensure text is visible after animation */
         .typing-text span {
