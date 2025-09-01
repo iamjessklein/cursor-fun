@@ -256,6 +256,28 @@
           border-bottom: 2px solid #00d1b2;
           padding-bottom: 0.5rem;
         }
+
+        .text-to-speech-controls {
+          background: #f8f9fa;
+          padding: 1.5rem;
+          border-radius: 8px;
+          border: 1px solid #e9ecef;
+        }
+
+        .text-to-speech-controls .button {
+          min-width: 150px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .text-to-speech-controls .button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .tts-status {
+          transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -421,12 +443,6 @@
           const modal = document.getElementById('podcast-modal');
           modal.classList.add('is-active');
           document.body.classList.add('is-clipped');
-          
-          // Auto-play the audio when modal opens
-          const audio = document.getElementById('firefox-podcast');
-          if (audio) {
-            audio.play().catch(e => console.log('Auto-play prevented by browser'));
-          }
         }
 
         function closePodcastModal() {
@@ -434,11 +450,9 @@
           modal.classList.remove('is-active');
           document.body.classList.remove('is-clipped');
           
-          // Pause the audio when modal closes
-          const audio = document.getElementById('firefox-podcast');
-          if (audio) {
-            audio.pause();
-            audio.currentTime = 0;
+          // Stop any ongoing speech when modal closes
+          if (window.speechSynthesis && window.speechSynthesis.speaking) {
+            window.speechSynthesis.cancel();
           }
         }
 
@@ -448,6 +462,87 @@
             closePodcastModal();
           }
         });
+
+        // Text-to-Speech functionality
+        let isSpeaking = false;
+        const caseStudyText = "Jess Klein led Mozilla's Hack Firefox initiative, empowering users to customize and extend their browser experience. This project demonstrated how open-source principles could transform user engagement, allowing developers and enthusiasts to create add-ons, themes, and modifications that enhanced Firefox's functionality. The initiative fostered a community of makers who learned through experimentation and collaboration, embodying Jess's core values of mentorship, open practices, and fostering communities.";
+
+        function toggleTextToSpeech() {
+          const ttsBtn = document.getElementById('tts-play-btn');
+          const ttsIcon = document.getElementById('tts-icon');
+          const ttsText = document.getElementById('tts-text');
+          const ttsStatus = document.querySelector('.tts-status span:last-child');
+
+          if (!isSpeaking) {
+            // Start speaking
+            speakText(caseStudyText);
+            isSpeaking = true;
+            ttsBtn.classList.remove('is-success');
+            ttsBtn.classList.add('is-danger');
+            ttsIcon.className = 'fas fa-stop';
+            ttsText.textContent = 'Stop Summary';
+            ttsStatus.textContent = 'Reading case study summary...';
+          } else {
+            // Stop speaking
+            stopSpeaking();
+            isSpeaking = false;
+            ttsBtn.classList.remove('is-danger');
+            ttsBtn.classList.add('is-success');
+            ttsIcon.className = 'fas fa-play';
+            ttsText.textContent = 'Play Summary';
+            ttsStatus.textContent = 'Click to hear the case study summary';
+          }
+        }
+
+        function speakText(text) {
+          if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9; // Slightly slower for better comprehension
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            
+            // Set a natural-sounding voice if available
+            const voices = speechSynthesis.getVoices();
+            const preferredVoice = voices.find(voice => 
+              voice.name.includes('Samantha') || 
+              voice.name.includes('Alex') || 
+              voice.name.includes('Google')
+            );
+            if (preferredVoice) {
+              utterance.voice = preferredVoice;
+            }
+
+            utterance.onend = function() {
+              // Reset button state when speech ends
+              isSpeaking = false;
+              const ttsBtn = document.getElementById('tts-play-btn');
+              const ttsIcon = document.getElementById('tts-icon');
+              const ttsText = document.getElementById('tts-text');
+              const ttsStatus = document.querySelector('.tts-status span:last-child');
+              
+              ttsBtn.classList.remove('is-danger');
+              ttsBtn.classList.add('is-success');
+              ttsIcon.className = 'fas fa-play';
+              ttsText.textContent = 'Play Summary';
+              ttsStatus.textContent = 'Click to hear the case study summary';
+            };
+
+            utterance.onerror = function(event) {
+              console.error('Speech synthesis error:', event);
+              stopSpeaking();
+            };
+
+            speechSynthesis.speak(utterance);
+          } else {
+            alert('Text-to-speech is not supported in your browser.');
+          }
+        }
+
+        function stopSpeaking() {
+          if (window.speechSynthesis && window.speechSynthesis.speaking) {
+            window.speechSynthesis.cancel();
+          }
+        }
     </script>
 
     <!-- Podcast Modal -->
@@ -481,16 +576,24 @@
             <div class="podcast-summary">
               <h4 class="title is-5" style="margin-bottom: 1rem; color: #363636;">
                 <span class="icon is-small" style="margin-right: 0.5rem;">
-                  <i class="fas fa-lightbulb"></i>
+                  <i class="fas fa-volume-up"></i>
                 </span>
-                Case Study Summary
+                Audio Case Study Summary
               </h4>
-              <p style="line-height: 1.6; color: #4a4a4a;">
-                Jess Klein led Mozilla's <strong>Hack Firefox</strong> initiative, empowering users to customize and extend their browser experience. This project demonstrated how open-source principles could transform user engagement, allowing developers and enthusiasts to create add-ons, themes, and modifications that enhanced Firefox's functionality.
-              </p>
-              <p style="line-height: 1.6; color: #4a4a4a; margin-top: 1rem;">
-                The initiative fostered a community of makers who learned through experimentation and collaboration, embodying Jess's core values of <strong>mentorship</strong>, <strong>open practices</strong>, and <strong>fostering communities</strong>.
-              </p>
+              <div class="text-to-speech-controls" style="text-align: center; margin-bottom: 1rem;">
+                <button id="tts-play-btn" class="button is-medium is-success is-rounded" onclick="toggleTextToSpeech()">
+                  <span class="icon is-medium">
+                    <i id="tts-icon" class="fas fa-play"></i>
+                  </span>
+                  <span id="tts-text">Play Summary</span>
+                </button>
+                <div class="tts-status" style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+                  <span class="icon is-small">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                  <span>Click to hear the case study summary</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
