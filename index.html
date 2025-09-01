@@ -212,6 +212,50 @@
           border-radius: 8px;
           box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+        /* Modal styles */
+        .modal-card {
+          max-width: 500px;
+          width: 90%;
+        }
+
+        .modal-card-head {
+          background: linear-gradient(135deg, #00d1b2, #209cee);
+          color: white;
+        }
+
+        .modal-card-title {
+          color: white !important;
+          font-weight: 600;
+        }
+
+        .modal-card-foot {
+          justify-content: center;
+          padding: 1rem;
+        }
+
+        .modal-card-foot .button {
+          min-width: 120px;
+        }
+
+        .audio-player-container {
+          background: #f5f5f5;
+          padding: 1.5rem;
+          border-radius: 8px;
+          border: 1px solid #e8e8e8;
+        }
+
+        .podcast-summary {
+          text-align: left;
+          padding: 0 1rem;
+        }
+
+        .podcast-summary h4 {
+          text-align: center;
+          color: #363636;
+          border-bottom: 2px solid #00d1b2;
+          padding-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -246,28 +290,12 @@
               
               <!-- Audio Podcast Button -->
               <div class="podcast-section" style="margin-top: 1rem;">
-                <button class="button is-small is-info is-rounded" onclick="togglePodcast()" style="margin-bottom: 0.5rem;">
+                <button class="button is-small is-info is-rounded" onclick="openPodcastModal()" style="margin-bottom: 0.5rem;">
                   <span class="icon is-small">
                     <i class="fas fa-play"></i>
                   </span>
                   <span>🎧 Listen to 2-min Case Study</span>
                 </button>
-                <div id="podcast-player" style="display: none; margin-top: 0.5rem;">
-                  <audio id="firefox-podcast" controls style="width: 100%; max-width: 300px;">
-                    <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADQABISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhI//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAA0C1lwG8AAAA" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                  </audio>
-                  <div class="audio-info" style="margin-top: 0.5rem; font-size: 0.75rem; color: #666;">
-                    <span class="icon is-small">
-                      <i class="fas fa-clock"></i>
-                    </span>
-                    <span>Duration: ~2 minutes</span>
-                  </div>
-                  <p class="is-size-7" style="margin-top: 0.5rem; color: #666;">
-                    <strong>Hack Firefox Case Study Summary:</strong><br>
-                    Jess Klein led Mozilla's Hack Firefox initiative, empowering users to customize and extend their browser experience. This project demonstrated how open-source principles could transform user engagement, allowing developers and enthusiasts to create add-ons, themes, and modifications that enhanced Firefox's functionality. The initiative fostered a community of makers who learned through experimentation and collaboration, embodying Jess's core values of mentorship and open practices.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -388,22 +416,94 @@
           });
         });
 
-        // Podcast toggle function
-        function togglePodcast() {
-          const player = document.getElementById('podcast-player');
-          const button = event.target.closest('button');
-          const icon = button.querySelector('i');
+        // Podcast modal functions
+        function openPodcastModal() {
+          const modal = document.getElementById('podcast-modal');
+          modal.classList.add('is-active');
+          document.body.classList.add('is-clipped');
           
-          if (player.style.display === 'none') {
-            player.style.display = 'block';
-            icon.className = 'fas fa-pause';
-            button.querySelector('span:last-child').textContent = '🎧 Hide Case Study';
-          } else {
-            player.style.display = 'none';
-            icon.className = 'fas fa-play';
-            button.querySelector('span:last-child').textContent = '🎧 Listen to 2-min Case Study';
+          // Auto-play the audio when modal opens
+          const audio = document.getElementById('firefox-podcast');
+          if (audio) {
+            audio.play().catch(e => console.log('Auto-play prevented by browser'));
           }
         }
+
+        function closePodcastModal() {
+          const modal = document.getElementById('podcast-modal');
+          modal.classList.remove('is-active');
+          document.body.classList.remove('is-clipped');
+          
+          // Pause the audio when modal closes
+          const audio = document.getElementById('firefox-podcast');
+          if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+          }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') {
+            closePodcastModal();
+          }
+        });
     </script>
+
+    <!-- Podcast Modal -->
+    <div id="podcast-modal" class="modal">
+      <div class="modal-background" onclick="closePodcastModal()"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">
+            <span class="icon is-medium" style="margin-right: 0.5rem;">
+              <i class="fas fa-podcast"></i>
+            </span>
+            Hack Firefox Case Study Podcast
+          </p>
+          <button class="delete" aria-label="close" onclick="closePodcastModal()"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="content has-text-centered">
+            <div class="audio-player-container" style="margin-bottom: 2rem;">
+              <audio id="firefox-podcast" controls style="width: 100%; max-width: 400px;">
+                <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADQABISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhI//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAA0C1lwG8AAAA" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <div class="audio-info" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                <span class="icon is-small">
+                  <i class="fas fa-clock"></i>
+                </span>
+                <span>Duration: ~2 minutes</span>
+              </div>
+            </div>
+            
+            <div class="podcast-summary">
+              <h4 class="title is-5" style="margin-bottom: 1rem; color: #363636;">
+                <span class="icon is-small" style="margin-right: 0.5rem;">
+                  <i class="fas fa-lightbulb"></i>
+                </span>
+                Case Study Summary
+              </h4>
+              <p style="line-height: 1.6; color: #4a4a4a;">
+                Jess Klein led Mozilla's <strong>Hack Firefox</strong> initiative, empowering users to customize and extend their browser experience. This project demonstrated how open-source principles could transform user engagement, allowing developers and enthusiasts to create add-ons, themes, and modifications that enhanced Firefox's functionality.
+              </p>
+              <p style="line-height: 1.6; color: #4a4a4a; margin-top: 1rem;">
+                The initiative fostered a community of makers who learned through experimentation and collaboration, embodying Jess's core values of <strong>mentorship</strong>, <strong>open practices</strong>, and <strong>fostering communities</strong>.
+              </p>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-info" onclick="closePodcastModal()">
+            <span class="icon is-small">
+              <i class="fas fa-check"></i>
+            </span>
+            <span>Got it!</span>
+          </button>
+        </footer>
+      </div>
+    </div>
 </body>
 </html>
+
