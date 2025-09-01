@@ -249,7 +249,7 @@
           width: 100%;
         }
 
-        .audio-section, .tts-section {
+        .tts-section {
           text-align: center;
           padding: 1rem;
           background: white;
@@ -258,14 +258,10 @@
           box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .audio-section h5, .tts-section h5 {
+        .tts-section h5 {
           color: #363636;
           font-weight: 600;
           margin-bottom: 1rem;
-        }
-
-        .divider {
-          opacity: 0.6;
         }
 
         .tts-section .button {
@@ -569,30 +565,7 @@
         <section class="modal-card-body">
           <div class="content has-text-centered">
             <div class="audio-player-container" style="margin-bottom: 2rem;">
-              <div class="audio-controls" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                <!-- Audio File Player -->
-                <div class="audio-section">
-                  <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #363636;">
-                    <span class="icon is-small" style="margin-right: 0.5rem;">
-                      <i class="fas fa-music"></i>
-                    </span>
-                    Audio Podcast
-                  </h5>
-                  <audio id="firefox-podcast" controls style="width: 100%; max-width: 400px;">
-                    <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADQABISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhI//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAA0C1lwG8AAAA" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                  </audio>
-                  <div class="audio-info" style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
-                    <span class="icon is-small">
-                      <i class="fas fa-clock"></i>
-                    </span>
-                    <span>Duration: ~2 minutes</span>
-                  </div>
-                </div>
-
-                <!-- Divider -->
-                <div class="divider" style="width: 80%; height: 1px; background: #e8e8e8; margin: 0.5rem 0;"></div>
-
+              <div class="audio-controls" style="display: flex; flex-direction: column; align-items: center;">
                 <!-- Text-to-Speech Summary -->
                 <div class="tts-section">
                   <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #363636;">
