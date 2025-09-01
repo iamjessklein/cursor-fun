@@ -279,7 +279,7 @@
               <!-- Audio Podcast Button -->
               <div class="podcast-section" style="margin-top: 1rem;">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                  <button id="tts-play-btn" class="button is-small is-text" onclick="toggleTextToSpeech()" style="border: none; background: none; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #6b7280; text-decoration: underline; transition: all 0.2s ease;">
+                  <button id="tts-play-btn" class="button is-small is-text" onclick="toggleTextToSpeech()" style="border: none; background: none; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #6b7280; transition: all 0.2s ease;">
                     <span class="icon is-small" style="margin-right: 0.25rem;">
                       <i id="tts-icon" class="fas fa-play"></i>
                     </span>
@@ -292,12 +292,7 @@
                     Beta
                   </span>
                 </div>
-                <div id="tts-status" style="margin-top: 0.5rem; font-size: 0.8rem; color: #666; text-align: center;">
-                  <span class="icon is-small">
-                    <i class="fas fa-info-circle"></i>
-                  </span>
-                  <span id="tts-status-text">Click to hear the case study summary</span>
-                </div>
+
               </div>
             </div>
           </div>
@@ -428,7 +423,6 @@
           const ttsBtn = document.getElementById('tts-play-btn');
           const ttsIcon = document.getElementById('tts-icon');
           const ttsText = document.getElementById('tts-text');
-          const ttsStatus = document.getElementById('tts-status-text');
 
           if (!isSpeaking) {
             // Start speaking
@@ -437,7 +431,6 @@
             ttsBtn.style.color = '#dc3545';
             ttsIcon.className = 'fas fa-stop';
             ttsText.textContent = 'Stop AI Summary';
-            ttsStatus.textContent = 'Reading case study summary...';
           } else {
             // Stop speaking
             stopSpeaking();
@@ -445,7 +438,6 @@
             ttsBtn.style.color = '#6b7280';
             ttsIcon.className = 'fas fa-play';
             ttsText.textContent = 'Listen to AI Summary';
-            ttsStatus.textContent = 'Click to hear the case study summary';
           }
         }
 
@@ -473,12 +465,10 @@
               const ttsBtn = document.getElementById('tts-play-btn');
               const ttsIcon = document.getElementById('tts-icon');
               const ttsText = document.getElementById('tts-text');
-              const ttsStatus = document.getElementById('tts-status-text');
               
               ttsBtn.style.color = '#6b7280';
               ttsIcon.className = 'fas fa-play';
               ttsText.textContent = 'Listen to AI Summary';
-              ttsStatus.textContent = 'Click to hear the case study summary';
             };
 
             utterance.onerror = function(event) {
