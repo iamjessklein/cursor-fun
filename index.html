@@ -312,12 +312,18 @@
               
               <!-- Audio Podcast Button -->
               <div class="podcast-section" style="margin-top: 1rem;">
-                <button class="button is-small is-info is-rounded" onclick="openPodcastModal()" style="margin-bottom: 0.5rem;">
+                <button id="tts-play-btn" class="button is-small is-info is-rounded" onclick="toggleTextToSpeech()" style="margin-bottom: 0.5rem;">
                   <span class="icon is-small">
-                    <i class="fas fa-play"></i>
+                    <i id="tts-icon" class="fas fa-play"></i>
                   </span>
-                  <span>🎧 Listen to AI Summary</span>
+                  <span id="tts-text">🎧 Listen to AI Summary</span>
                 </button>
+                <div id="tts-status" style="margin-top: 0.5rem; font-size: 0.8rem; color: #666; text-align: center;">
+                  <span class="icon is-small">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                  <span id="tts-status-text">Click to hear the case study summary</span>
+                </div>
               </div>
             </div>
           </div>
@@ -545,59 +551,7 @@
         }
     </script>
 
-    <!-- Podcast Modal -->
-    <div id="podcast-modal" class="modal">
-      <div class="modal-background" onclick="closePodcastModal()"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">
-            <span class="icon is-medium" style="margin-right: 0.5rem;">
-              <i class="fas fa-podcast"></i>
-            </span>
-            Hack Firefox Case Study Podcast
-          </p>
-        </header>
-        <section class="modal-card-body">
-          <div class="content has-text-centered">
-            <div class="audio-player-container" style="margin-bottom: 2rem;">
-              <div class="audio-controls" style="display: flex; flex-direction: column; align-items: center;">
-                <!-- Text-to-Speech Summary -->
-                <div class="tts-section">
-                  <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #363636;">
-                    <span class="icon is-small" style="margin-right: 0.5rem;">
-                      <i class="fas fa-volume-up"></i>
-                    </span>
-                    Audio Summary
-                  </h5>
-                  <button id="tts-play-btn" class="button is-medium is-info is-rounded" onclick="toggleTextToSpeech()">
-                    <span class="icon is-medium">
-                      <i id="tts-icon" class="fas fa-play"></i>
-                    </span>
-                    <span id="tts-text">Listen to AI Summary</span>
-                  </button>
-                  <div class="tts-status" style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
-                    <span class="icon is-small">
-                      <i class="fas fa-info-circle"></i>
-                    </span>
-                    <span id="tts-status-text">Click to hear the case study summary</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
 
-          </div>
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button is-info" onclick="closePodcastModal()">
-            <span class="icon is-small">
-              <i class="fas fa-check"></i>
-            </span>
-            <span>Got it!</span>
-          </button>
-        </footer>
-      </div>
-    </div>
 </body>
 </html>
 
