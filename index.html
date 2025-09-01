@@ -139,13 +139,48 @@
         strong {
           font-weight: 600;
         }
+
+        /* Typing animation styles */
+        .typing-container {
+          display: inline-block;
+        }
+
+        .typing-text {
+          overflow: hidden;
+          border-right: 2px solid #000;
+          white-space: nowrap;
+          animation: typing 2s steps(5, end), blink-caret 0.75s step-end infinite;
+          animation-fill-mode: forwards;
+          animation-delay: 1s;
+        }
+
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: #000; }
+        }
+
+        /* Hide the original text initially */
+        .typing-text span {
+          opacity: 0;
+          animation: fadeIn 0.1s ease-in forwards;
+          animation-delay: 3s;
+        }
+
+        @keyframes fadeIn {
+          to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <section class="section is-jess-header">
       <div class="container">
         <div class="content">
-          <h1><a href="https://jessicaklein.com/"><strong>jessklein.is</strong> a <span data-jess-highlight="jess-highlight-yellow">maker</span></a></h1>
+          <h1><a href="https://jessicaklein.com/"><strong>jessklein.is</strong> a <span data-jess-highlight="jess-highlight-yellow" class="typing-container"><span class="typing-text"><span>maker</span></span></span></a></h1>
         </div>
       </div>
     </section>
