@@ -255,10 +255,16 @@
           .project-inventory-grid > div {
             display: block !important;
             padding: 0.75rem 0 !important;
+            border-bottom: none !important;
+          }
+          
+          /* Only show border on the first div of each row (project name) */
+          .project-inventory-grid > div:first-child {
             border-bottom: 2px solid #a8c8a8 !important;
           }
           
-          .project-inventory-grid > div:last-child {
+          /* Remove border from the last visible item in each section */
+          .project-inventory-grid:last-of-type > div:first-child {
             border-bottom: none !important;
           }
           
