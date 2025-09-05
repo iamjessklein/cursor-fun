@@ -425,9 +425,29 @@
 
         <!-- Playful Horizontal Rule -->
         <div style="margin: 3rem 0; text-align: center;">
-          <div style="display: inline-block; font-size: 1.8rem; color: #ccc; letter-spacing: 0.3rem; transform: rotate(-2deg);">
-            ~~~~~ ~~~~~ ~~~~~
-          </div>
+          <svg width="300" height="20" viewBox="0 0 300 20" style="opacity: 0.6;">
+            <defs>
+              <linearGradient id="inkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#999;stop-opacity:0.8" />
+                <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#999;stop-opacity:0.8" />
+              </linearGradient>
+            </defs>
+            <path d="M10,10 Q50,5 100,12 T200,8 Q250,15 290,10" 
+                  stroke="url(#inkGradient)" 
+                  stroke-width="3" 
+                  fill="none" 
+                  stroke-linecap="round"
+                  style="filter: blur(0.5px);">
+            </path>
+            <path d="M15,12 Q55,7 105,14 T205,10 Q255,17 285,12" 
+                  stroke="url(#inkGradient)" 
+                  stroke-width="2" 
+                  fill="none" 
+                  stroke-linecap="round"
+                  style="filter: blur(0.3px); opacity: 0.7;">
+            </path>
+          </svg>
         </div>
 
         <!-- Project Inventory Section -->
