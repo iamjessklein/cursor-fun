@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Jess Klein is a maker who focuses on mentorship, experimentation, open practices, learning through making, collaboration, and fostering communities." property="og:description">
+    <title>Project Inventory - Jess Klein</title>
+    <link rel="stylesheet" href="https://jessicaklein.com/vendor/bulma/css/bulma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 300 900;
+          font-display: swap;
+          src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        }
+
+        body {
+          font-family: 'Inter', sans-serif;
+          line-height: 1.6;
+        }
+
+        .section.is-jess-header {
+          padding-top: 24px;
+          padding-bottom: 24px;
+          background: inherit;
+        }
+
+        .section.is-jess-header h1 a {
+          color: inherit;
+        }
+
+        .jess-highlight-bg {
+          position: absolute;
+          transform: rotate(-4deg);
+        }
+
+        .jess-highlight-yellow {
+          background-color: rgba(243, 222, 135, 0.80);
+        }
+
+        .jess-highlight-blue {
+          background-color: rgba(90, 201, 238, 0.5);
+        }
+
+        .jess-highlight-pink {
+          background-color: rgba(231, 90, 238, 0.5);
+        }
+
+        /* Hide dates from inventory on all screen sizes */
+        .project-name span[style*="color: #666"][style*="font-size: 0.9rem"] {
+          display: none !important;
+        }
+        .project-name .icon[style*="margin: 0 0.5rem"] {
+          display: none !important;
+        }
+
+        /* Arrow hover animation */
+        .birds-link:hover .arrow-icon,
+        .design-lessons-link:hover .arrow-icon,
+        .hack-firefox-link:hover .arrow-icon,
+        .open-badges-link:hover .arrow-icon,
+        .hive-link:hover .arrow-icon,
+        .odk-link:hover .arrow-icon,
+        .rockaway-link:hover .arrow-icon {
+          animation: bounceLeftRight 0.6s ease-in-out infinite;
+          color: #666 !important;
+        }
+
+        @keyframes bounceLeftRight {
+          0%, 100% { transform: translateX(0px); }
+          25% { transform: translateX(-3px); }
+          75% { transform: translateX(3px); }
+        }
+
+        /* Background shading on hover */
+        .birds-link:hover,
+        .design-lessons-link:hover,
+        .hack-firefox-link:hover,
+        .open-badges-link:hover,
+        .hive-link:hover,
+        .odk-link:hover,
+        .rockaway-link:hover {
+          background-color: rgba(169, 169, 169, 0.15) !important;
+          transition: all 0.3s ease;
+        }
+
+        /* Mobile responsive styles for project inventory */
+        @media (max-width: 768px) {
+          .project-inventory-grid {
+            display: block !important;
+            grid-template-columns: none !important;
+          }
+          
+          .project-inventory-grid > div {
+            display: block !important;
+            padding: 0.75rem 0 !important;
+            border-bottom: none !important;
+          }
+          
+          .project-name {
+            font-weight: 500;
+            margin-bottom: 0;
+          }
+          
+          .project-name .tag {
+            display: block !important;
+            margin: 0 0 16px 0 !important;
+            width: fit-content;
+          }
+          .project-name .tag:last-of-type {
+            margin-bottom: 0 !important;
+          }
+        }
+    </style>
+</head>
+<body>
+    <section class="section is-jess-header">
+      <div class="container">
+        <div class="content" style="display: flex; justify-content: space-between; align-items: center;">
+          <h1 style="margin: 0;"><a href="index.html"><strong>jessklein.is</strong> a <span data-jess-highlight="jess-highlight-yellow" class="typing-container"><span class="typing-text"><span>maker</span></span></span></a></h1>
+          <nav style="margin-left: auto;">
+            <a href="index.html" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.3s ease;" onmouseover="this.style.color='#333'" onmouseout="this.style.color='#666'">Home</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Project Inventory Section -->
+        <div id="project-inventory" class="content" style="margin-top: 1rem; padding: 3rem 2rem;">
+          <h2 class="title is-3" style="margin-bottom: 0.5rem; font-weight: 300; letter-spacing: 2px; text-align: left;">Project Inventory</h2>
+          <p style="margin-bottom: 3rem; color: #666; font-size: 0.9rem;">A minimum loveable product (MLP) version of an archive</p>
+
+          <div class="project-inventory-grid" style="display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1;">
+            <div class="project-name" style="font-weight: 500;">
+              QR Code Petition Posters
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2024</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                fostering communities
+              </span>
+            </div>
+          </div>
+
+          <a href="https://jessicaklein.com/project/odk/" class="odk-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Open Design Kit
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2022</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(243, 222, 135, 0.2); color: #B8860B; border: 1px solid rgba(243, 222, 135, 0.4);">
+                open practices
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                fostering communities
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <div class="project-inventory-grid" style="display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1;">
+            <div class="project-name" style="font-weight: 500;">
+              Petition Creation Recommendations with AI
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2025</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                experimentation
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                learning through making
+              </span>
+            </div>
+          </div>
+
+          <div class="project-inventory-grid" style="display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1;">
+            <div class="project-name" style="font-weight: 500;">
+              Wikipedia Talk Pages
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2022</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                collaboration
+              </span>
+            </div>
+          </div>
+
+          <div class="project-inventory-grid" style="display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1;">
+            <div class="project-name" style="font-weight: 500;">
+              Wikipedia Mobile Editing
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2022</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(243, 222, 135, 0.2); color: #B8860B; border: 1px solid rgba(243, 222, 135, 0.4);">
+                open practices
+              </span>
+            </div>
+          </div>
+
+          <a href="https://jessicaklein.com/project/rockaway/" class="rockaway-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Rebuilding after Hurricane Sandy Hackathon
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2012</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                fostering communities
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                learning through making
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                collaboration
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                experimentation
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://jessicaklein.com/zines/nyc-birds/" class="birds-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Birds I've Seen in NYC
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2021</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                learning through making
+              </span>
+              <span class="icon has-text-grey-dark" style="margin-left: 0.5rem;">
+                <i class="far fa-smile"></i>
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://jessicaklein.com/zines/design-lessons/" class="design-lessons-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Design Lessons from a year in Quarantine
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2021</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                learning through making
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(243, 222, 135, 0.2); color: #B8860B; border: 1px solid rgba(243, 222, 135, 0.4);">
+                open practices
+              </span>
+              <span class="icon has-text-grey-dark" style="margin-left: 0.5rem;">
+                <i class="far fa-smile"></i>
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://jessicaklein.com/project/firefox/" class="hack-firefox-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Hack Firefox
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2021</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                mentorship
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://jessicaklein.com/project/open-badges/" class="open-badges-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Open Badges
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2020</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                experimentation
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(243, 222, 135, 0.2); color: #B8860B; border: 1px solid rgba(243, 222, 135, 0.4);">
+                open practices
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://jessicaklein.com/project/hive/" class="hive-link" style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1; text-decoration: none; color: inherit; transition: background-color 0.3s ease;">
+            <div class="project-name" style="font-weight: 500;">
+              Hive Learning Network
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2020</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                fostering communities
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(243, 222, 135, 0.2); color: #B8860B; border: 1px solid rgba(243, 222, 135, 0.4);">
+                open practices
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                mentorship
+              </span>
+            </div>
+            <div class="arrow-icon" style="color: #999; transition: all 0.3s ease;">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <div class="project-inventory-grid" style="display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid; border-image: linear-gradient(90deg, #d3d3d3, #a9a9a9, #d3d3d3) 1;">
+            <div class="project-name" style="font-weight: 500;">
+              Hackasaurus
+              <span class="icon has-text-grey-dark" style="margin: 0 0.5rem;">
+                <i class="fas fa-circle" style="font-size: 0.3rem;"></i>
+              </span>
+              <span style="color: #666; font-size: 0.9rem; font-weight: 400;">2020</span>
+              <span class="tag is-light" style="margin-left: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(90, 201, 238, 0.1); color: #209cee; border: 1px solid rgba(90, 201, 238, 0.3);">
+                learning through making
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(231, 90, 238, 0.1); color: #6B4C93; border: 1px solid rgba(231, 90, 238, 0.3);">
+                mentorship
+              </span>
+              <span class="tag is-light" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; background-color: rgba(243, 222, 135, 0.2); color: #B8860B; border: 1px solid rgba(243, 222, 135, 0.4);">
+                open practices
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Legend -->
+        <div style="margin-top: 0.1rem; font-size: 0.9rem; color: #666;">
+          <span class="icon has-text-grey-dark" style="margin-right: 0.5rem;">
+            <i class="far fa-smile"></i>
+          </span>
+          <span>= Personal Project</span>
+        </div>
+
+      </div>
+    </section>
+</body>
+</html>
