@@ -250,21 +250,26 @@
           background-color: rgba(169, 169, 169, 0.15) !important;
         }
 
-        /* Birds link hover effect */
-        .birds-link:hover {
-          background-color: rgba(169, 169, 169, 0.15) !important;
-        }
-
-        /* Design lessons link hover effect */
-        .design-lessons-link:hover {
-          background-color: rgba(169, 169, 169, 0.15) !important;
-        }
 
         /* Arrow hover animation */
         .birds-link:hover .arrow-icon,
         .design-lessons-link:hover .arrow-icon {
           transform: translateX(3px) scale(1.2);
           color: #666 !important;
+        }
+
+        /* Background shading that grows with arrow */
+        .birds-link:hover,
+        .design-lessons-link:hover {
+          background-color: rgba(169, 169, 169, 0.15) !important;
+          transform: scale(1.02);
+          transition: all 0.3s ease;
+        }
+
+        /* Bold text on hover */
+        .birds-link:hover .project-name,
+        .design-lessons-link:hover .project-name {
+          font-weight: 700 !important;
         }
 
         /* Mobile responsive styles for project inventory */
