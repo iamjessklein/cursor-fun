@@ -281,6 +281,13 @@
           transition: all 0.3s ease;
         }
 
+        /* Hide dates from inventory on all screen sizes */
+        .project-name span[style*="color: #666"][style*="font-size: 0.9rem"] {
+          display: none !important;
+        }
+        .project-name .icon[style*="margin: 0 0.5rem"] {
+          display: none !important;
+        }
 
         /* Mobile responsive styles for project inventory */
         @media (max-width: 768px) {
