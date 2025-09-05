@@ -244,6 +244,38 @@
         .audio-info {
           opacity: 0.8;
         }
+
+        /* Mobile responsive styles for project inventory */
+        @media (max-width: 768px) {
+          .project-inventory-grid {
+            display: block !important;
+            grid-template-columns: none !important;
+          }
+          
+          .project-inventory-grid > div {
+            display: block !important;
+            padding: 0.75rem 0 !important;
+            border-bottom: 2px solid #a8c8a8 !important;
+          }
+          
+          .project-inventory-grid > div:last-child {
+            border-bottom: none !important;
+          }
+          
+          .project-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+          }
+          
+          .project-org {
+            color: #666;
+            font-size: 0.9rem;
+          }
+          
+          .project-date {
+            display: none !important;
+          }
+        }
     </style>
 </head>
 <body>
@@ -378,70 +410,70 @@
           <!-- 2020 - Present -->
           <div style="margin-bottom: 3rem;">
             <h3 class="title is-5" style="margin-bottom: 1.5rem; font-weight: 400; color: #666; letter-spacing: 1px;">2020 - Present</h3>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">
                 Current Projects
                 <span class="icon has-text-grey-dark" style="margin-left: 0.5rem;">
                   <i class="far fa-smile"></i>
                 </span>
               </div>
-              <div style="color: #666;">Various</div>
-              <div style="color: #666; font-size: 0.9rem;">2020-2024</div>
+              <div class="project-org" style="color: #666;">Various</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2020-2024</div>
             </div>
           </div>
 
           <!-- 2014 - 2019 -->
           <div style="margin-bottom: 3rem;">
             <h3 class="title is-5" style="margin-bottom: 1.5rem; font-weight: 400; color: #666; letter-spacing: 1px;">2014 - 2019</h3>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">
                 <a href="https://jessicaklein.com/zines/" style="color: #6B4C93; text-decoration: underline;">Zines</a>
                 <span class="icon has-text-grey-dark" style="margin-left: 0.5rem;">
                   <i class="far fa-smile"></i>
                 </span>
               </div>
-              <div style="color: #666;">Independent</div>
-              <div style="color: #666; font-size: 0.9rem;">2015-2017</div>
+              <div class="project-org" style="color: #666;">Independent</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2015-2017</div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">Wikipedia Editor</div>
-              <div style="color: #666;">Wikimedia Foundation</div>
-              <div style="color: #666; font-size: 0.9rem;">2014-2016</div>
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">Wikipedia Editor</div>
+              <div class="project-org" style="color: #666;">Wikimedia Foundation</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2014-2016</div>
             </div>
           </div>
 
           <!-- Up to 2013 -->
           <div style="margin-bottom: 3rem;">
             <h3 class="title is-5" style="margin-bottom: 1.5rem; font-weight: 400; color: #666; letter-spacing: 1px;">Up to 2013</h3>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">
                 Rockaway
                 <span class="icon has-text-grey-dark" style="margin-left: 0.5rem;">
                   <i class="far fa-smile"></i>
                 </span>
               </div>
-              <div style="color: #666;">Various Organizations</div>
-              <div style="color: #666; font-size: 0.9rem;">2012-2013</div>
+              <div class="project-org" style="color: #666;">Various Organizations</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2012-2013</div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">Hive Learning Network</div>
-              <div style="color: #666;">Mozilla Foundation</div>
-              <div style="color: #666; font-size: 0.9rem;">2012-2014</div>
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">Hive Learning Network</div>
+              <div class="project-org" style="color: #666;">Mozilla Foundation</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2012-2014</div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">Open Badges</div>
-              <div style="color: #666;">Mozilla Foundation</div>
-              <div style="color: #666; font-size: 0.9rem;">2011-2013</div>
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">Open Badges</div>
+              <div class="project-org" style="color: #666;">Mozilla Foundation</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2011-2013</div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">Hack Firefox</div>
-              <div style="color: #666;">Mozilla</div>
-              <div style="color: #666; font-size: 0.9rem;">2011-2012</div>
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">Hack Firefox</div>
+              <div class="project-org" style="color: #666;">Mozilla</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2011-2012</div>
             </div>
-            <div style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
-              <div style="font-weight: 500;">Hackasaurus</div>
-              <div style="color: #666;">Mozilla Foundation</div>
-              <div style="color: #666; font-size: 0.9rem;">2010-2012</div>
+            <div class="project-inventory-grid" style="display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 2px solid #a8c8a8;">
+              <div class="project-name" style="font-weight: 500;">Hackasaurus</div>
+              <div class="project-org" style="color: #666;">Mozilla Foundation</div>
+              <div class="project-date" style="color: #666; font-size: 0.9rem;">2010-2012</div>
             </div>
           </div>
 
