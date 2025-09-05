@@ -290,6 +290,18 @@
             margin-bottom: 0;
           }
           
+          /* Stack chips vertically on mobile */
+          .project-name .tag {
+            display: block !important;
+            margin: 0 0 16px 0 !important;
+            width: fit-content;
+          }
+          
+          /* Remove margin from last chip */
+          .project-name .tag:last-of-type {
+            margin-bottom: 0 !important;
+          }
+          
           /* Hide organization and date divs on mobile */
           .project-inventory-grid > div:nth-child(2),
           .project-inventory-grid > div:nth-child(3) {
