@@ -354,11 +354,19 @@
 
         /* Mobile navigation text adjustments */
         @media (max-width: 480px) {
-          .nav-inventory-text::after {
-            content: "Inventory";
-          }
           .nav-inventory-text {
             font-size: 0 !important;
+          }
+          .nav-inventory-text::after {
+            content: "Inventory";
+            font-size: 0.9rem !important;
+            font-weight: 400;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+          .nav-inventory-text:hover::after {
+            color: #333;
           }
         }
     </style>

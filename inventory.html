@@ -123,11 +123,17 @@
 
         /* Mobile navigation text adjustments */
         @media (max-width: 480px) {
-          .nav-inventory-text::after {
-            content: "Inventory";
-          }
           .nav-inventory-text {
             font-size: 0 !important;
+          }
+          .nav-inventory-text::after {
+            content: "Inventory";
+            font-size: 0.9rem !important;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 2px solid #333;
+            padding-bottom: 2px;
           }
         }
     </style>
