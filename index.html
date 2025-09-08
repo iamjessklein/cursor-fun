@@ -269,67 +269,6 @@
           pointer-events: none;
         }
 
-        .blob {
-          position: absolute;
-          border-radius: 50%;
-          opacity: 0.9;
-          animation: float 20s infinite ease-in-out;
-        }
-
-        .blob-1 {
-          width: 300px;
-          height: 300px;
-          background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-          top: 20%;
-          left: -10%;
-          animation-delay: 0s;
-        }
-
-        .blob-2 {
-          width: 200px;
-          height: 200px;
-          background: linear-gradient(45deg, #4ecdc4, #6ed5cd);
-          top: 60%;
-          right: -5%;
-          animation-delay: 5s;
-        }
-
-        .blob-3 {
-          width: 250px;
-          height: 250px;
-          background: linear-gradient(45deg, #45b7d1, #6bc5d8);
-          bottom: 20%;
-          left: 20%;
-          animation-delay: 10s;
-        }
-
-        .blob-4 {
-          width: 180px;
-          height: 180px;
-          background: linear-gradient(45deg, #f9ca24, #fbd649);
-          top: 30%;
-          right: 30%;
-          animation-delay: 15s;
-        }
-
-        .blob-5 {
-          width: 220px;
-          height: 220px;
-          background: linear-gradient(45deg, #6c5ce7, #8b7ed8);
-          bottom: 10%;
-          right: 10%;
-          animation-delay: 8s;
-        }
-
-        .blob-6 {
-          width: 350px;
-          height: 350px;
-          background: linear-gradient(45deg, #ff9ff3, #f368e0);
-          top: 5%;
-          left: 50%;
-          transform: translateX(-50%);
-          animation-delay: 12s;
-        }
 
         .blob-7 {
           width: 300px;
@@ -380,20 +319,6 @@
           }
         }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          25% {
-            transform: translateY(-20px) rotate(5deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(-3deg);
-          }
-          75% {
-            transform: translateY(-15px) rotate(2deg);
-          }
-        }
 
 
 
@@ -567,14 +492,8 @@
     </style>
 </head>
 <body>
-    <!-- Colorful blob backgrounds -->
+    <!-- Animated blob background -->
     <div class="blob-bg">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-      <div class="blob blob-4"></div>
-      <div class="blob blob-5"></div>
-      <div class="blob blob-6"></div>
       <div class="blob blob-7">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path fill="#F1C21B" d="M41,-59.9C50.3,-57.7,53.2,-41.7,58,-27.6C62.7,-13.4,69.3,-1.3,69.5,11.3C69.7,23.8,63.5,36.7,54.5,47.3C45.5,57.9,33.7,66.2,22,65.2C10.3,64.1,-1.2,53.8,-14.9,50.1C-28.6,46.4,-44.5,49.3,-49,43C-53.5,36.8,-46.7,21.2,-47.3,7.7C-47.8,-5.9,-55.8,-17.5,-57.2,-31C-58.6,-44.4,-53.4,-59.7,-42.7,-61.3C-32.1,-62.9,-16.1,-50.9,-0.1,-50.7C15.8,-50.5,31.6,-62.1,41,-59.9Z" transform="translate(100 100)" />
