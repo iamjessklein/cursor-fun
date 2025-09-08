@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="Jess Klein is a maker who focuses on mentorship, experimentation, open practices, learning through making, collaboration, and fostering communities." property="og:description">
     <title>Project Inventory - Jess Klein</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="https://jessicaklein.com/vendor/bulma/css/bulma.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -119,6 +120,16 @@
             margin-bottom: 0 !important;
           }
         }
+
+        /* Mobile navigation text adjustments */
+        @media (max-width: 480px) {
+          .nav-inventory-text::after {
+            content: "Inventory";
+          }
+          .nav-inventory-text {
+            font-size: 0 !important;
+          }
+        }
     </style>
 </head>
 <body>
@@ -128,7 +139,7 @@
           <h1 style="margin: 0;"><a href="index.html"><strong>jessklein.is</strong> a <span data-jess-highlight="jess-highlight-yellow" class="typing-container"><span class="typing-text"><span>maker</span></span></span></a></h1>
           <nav style="margin-left: auto;">
             <a href="index.html" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.3s ease;" onmouseover="this.style.color='#333'" onmouseout="this.style.color='#666'">Values</a>
-            <span style="color: #333; text-decoration: none; font-size: 0.9rem; font-weight: 500; margin-left: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 2px;">Project Inventory</span>
+            <span class="nav-inventory-text" style="color: #333; text-decoration: none; font-size: 0.9rem; font-weight: 500; margin-left: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 2px;">Project Inventory</span>
           </nav>
         </div>
       </div>
