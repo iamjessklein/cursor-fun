@@ -286,6 +286,23 @@
           animation: morphShape 30s infinite ease-in-out, colorTransition 90s infinite ease-in-out;
         }
 
+        /* Respect user's motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .blob-7 {
+            animation: none;
+            transform: translate(0, 0);
+          }
+          
+          .blob-7 svg {
+            animation: none;
+            transform: scale(1) rotate(0deg) skewX(0deg);
+          }
+          
+          .blob-7 svg path {
+            transition: none;
+          }
+        }
+
         .blob-7 svg path {
           transition: fill 0.5s ease-in-out;
         }
@@ -563,7 +580,7 @@
 
         <div class="content has-text-centered is-jess-quote">
           <h1 style="font-size: 2rem; font-weight: 300; margin-bottom: 3rem; color: #2b2b2b; line-height: 1.2;">
-            I think that good design should support:
+            I think that good design supports:
           </h1>
         </div>
 
@@ -579,25 +596,6 @@
             <div class="content has-text-centered">
               <h2><a href="https://jessicaklein.com/project/firefox/">Hack Firefox</a></h2>
               <div class="is-jess-as-featured-in">By <em>Mozilla</em></div>
-              
-              <!-- Audio Podcast Button -->
-              <div class="podcast-section" style="margin-top: 1rem;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                  <button id="tts-play-btn" class="button is-small is-text" onclick="toggleTextToSpeech()" style="border: none; background: none; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: #6b7280; transition: all 0.2s ease;">
-                    <span class="icon is-small" style="margin-right: 0.25rem;">
-                      <i id="tts-icon" class="fas fa-play"></i>
-                    </span>
-                    <span id="tts-text">Listen to AI Summary</span>
-                  </button>
-                  <span class="tag is-warning is-light" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">
-                    <span class="icon is-small" style="margin-right: 0.25rem;">
-                      <i class="fas fa-flask"></i>
-                    </span>
-                    Beta
-                  </span>
-                </div>
-
-              </div>
             </div>
           </div>
 
