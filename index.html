@@ -1039,6 +1039,29 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
+        function highlightElementForAI(element) {
+            if (!element) return;
+            
+            // Create a temporary highlight overlay
+            const highlight = document.createElement('div');
+            highlight.style.cssText = 'position:absolute;border:2px solid #2563eb;background:rgba(37,99,235,0.1);pointer-events:none;z-index:1000000;display:block';
+            
+            const rect = element.getBoundingClientRect();
+            highlight.style.left = (rect.left + window.scrollX) + 'px';
+            highlight.style.top = (rect.top + window.scrollY) + 'px';
+            highlight.style.width = rect.width + 'px';
+            highlight.style.height = rect.height + 'px';
+            
+            document.body.appendChild(highlight);
+            
+            // Remove highlight after 2 seconds
+            setTimeout(() => {
+                if (highlight && highlight.parentNode) {
+                    highlight.remove();
+                }
+            }, 2000);
+        }
+
         function processAIRequest(message) {
             const lowerMessage = message.toLowerCase();
             
@@ -1051,7 +1074,7 @@
                             const heading = document.querySelector('h1');
                             if (heading) {
                                 heading.textContent = 'Hello World';
-                                highlightElement(heading);
+                                highlightElementForAI(heading);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1068,7 +1091,7 @@
                                 const heading = document.querySelector('h1');
                                 if (heading) {
                                     heading.textContent = newText;
-                                    highlightElement(heading);
+                                    highlightElementForAI(heading);
                                     // Add follow-up question after action
                                     setTimeout(() => {
                                         addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1089,7 +1112,7 @@
                             const button = document.getElementById('goggles-toggle-btn');
                             if (button) {
                                 button.style.background = 'linear-gradient(135deg, #dc2626, #b91c1c)';
-                                highlightElement(button);
+                                highlightElementForAI(button);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1104,7 +1127,7 @@
                             const button = document.getElementById('goggles-toggle-btn');
                             if (button) {
                                 button.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
-                                highlightElement(button);
+                                highlightElementForAI(button);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1125,7 +1148,7 @@
                             if (image) {
                                 image.style.border = '3px solid #2563eb';
                                 image.style.borderRadius = '12px';
-                                highlightElement(image);
+                                highlightElementForAI(image);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1140,7 +1163,7 @@
                             const image = document.querySelector('.demo-image');
                             if (image) {
                                 image.style.transform = 'scale(1.2)';
-                                highlightElement(image);
+                                highlightElementForAI(image);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1160,7 +1183,7 @@
                             const tagline = document.querySelector('p[style*="text-align: center"]');
                             if (tagline) {
                                 tagline.style.fontSize = '1.5em';
-                                highlightElement(tagline);
+                                highlightElementForAI(tagline);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1175,7 +1198,7 @@
                             const tagline = document.querySelector('p[style*="text-align: center"]');
                             if (tagline) {
                                 tagline.style.fontSize = '1em';
-                                highlightElement(tagline);
+                                highlightElementForAI(tagline);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1195,7 +1218,7 @@
                             const heading = document.querySelector('h1');
                             if (heading) {
                                 heading.style.color = '#2563eb';
-                                highlightElement(heading);
+                                highlightElementForAI(heading);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1210,7 +1233,7 @@
                             const heading = document.querySelector('h1');
                             if (heading) {
                                 heading.style.color = '#dc2626';
-                                highlightElement(heading);
+                                highlightElementForAI(heading);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
