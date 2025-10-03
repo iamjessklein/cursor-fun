@@ -659,6 +659,61 @@
             background: #1e40af;
             transform: scale(1.05);
         }
+        
+        /* HTML Tag Chips */
+        .html-tag-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        
+        .html-tag-chip {
+            background: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #0ea5e9;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        
+        .html-tag-chip:hover {
+            background: #0ea5e9;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .html-tag-chip.correct {
+            background: #16a34a;
+            color: white;
+            border-color: #15803d;
+        }
+        
+        .html-tag-chip.incorrect {
+            background: #dc2626;
+            color: white;
+            border-color: #b91c1c;
+        }
+        
+        .html-explanation {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .html-explanation h4 {
+            margin: 0 0 8px 0;
+            color: #0369a1;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -1021,7 +1076,7 @@
             // Process AI response
             setTimeout(() => {
                 const response = processAIRequest(message);
-                addChatbotMessage(response.text, 'ai');
+                addChatbotMessage(response.text, 'ai', response.isHTML || false);
                 
                 // Execute any actions
                 if (response.action) {
@@ -1030,11 +1085,17 @@
             }, 500);
         }
 
-        function addChatbotMessage(text, sender) {
+        function addChatbotMessage(text, sender, isHTML = false) {
             const messagesContainer = document.getElementById('chatbot-messages');
             const messageDiv = document.createElement('div');
             messageDiv.className = `chatbot-message ${sender}`;
-            messageDiv.textContent = text;
+            
+            if (isHTML) {
+                messageDiv.innerHTML = text;
+            } else {
+                messageDiv.textContent = text;
+            }
+            
             messagesContainer.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
@@ -1062,8 +1123,83 @@
             }, 2000);
         }
 
+        function createHTMLTagChips() {
+            const chipsHTML = `
+                <div class="html-tag-chips">
+                    <div class="html-tag-chip" onclick="handleTagChipClick(this, 'p')">&lt;p&gt;</div>
+                    <div class="html-tag-chip" onclick="handleTagChipClick(this, 'h1')">&lt;h1&gt;</div>
+                    <div class="html-tag-chip" onclick="handleTagChipClick(this, 'img')">&lt;img&gt;</div>
+                    <div class="html-tag-chip" onclick="handleTagChipClick(this, 'span')">&lt;span&gt;</div>
+                </div>
+            `;
+            return chipsHTML;
+        }
+
+        function handleTagChipClick(chip, tagName) {
+            // Mark all chips as incorrect first
+            const allChips = chip.parentNode.querySelectorAll('.html-tag-chip');
+            allChips.forEach(c => c.classList.add('incorrect'));
+            
+            // Mark the clicked chip as correct
+            chip.classList.remove('incorrect');
+            chip.classList.add('correct');
+            
+            // Show explanation for h1 tag
+            if (tagName === 'h1') {
+                setTimeout(() => {
+                    const explanationHTML = `
+                        <div class="html-explanation">
+                            <h4>That's right! We replaced the heading tags.</h4>
+                            <p>The &lt;h1&gt; to &lt;h6&gt; tags are used to define HTML headings.</p>
+                            <p>&lt;h1&gt; defines the most important heading. &lt;h6&gt; defines the least important heading.</p>
+                        </div>
+                    `;
+                    addChatbotMessage(explanationHTML, 'ai', true);
+                    
+                    // Ask them to try something else
+                    setTimeout(() => {
+                        addChatbotMessage("Great job! Now try asking me to change something else on the page! 🎉", 'ai');
+                    }, 1000);
+                }, 500);
+            } else {
+                // For other tags, show a brief explanation
+                setTimeout(() => {
+                    addChatbotMessage(`Good try! We actually changed the &lt;h1&gt; heading tag. Try clicking on &lt;h1&gt; to learn more! 💡`, 'ai');
+                }, 500);
+            }
+        }
+
         function processAIRequest(message) {
             const lowerMessage = message.toLowerCase();
+            
+            // Handle user responses to the follow-up question
+            if (lowerMessage.includes('idk') || lowerMessage.includes("i don't know") || lowerMessage.includes('dunno') || lowerMessage.includes('no idea')) {
+                const helpMessage = "No worries! Let me help you learn. We edited one of these HTML tags:" + createHTMLTagChips();
+                return {
+                    text: helpMessage,
+                    isHTML: true
+                };
+            }
+            
+            // Handle direct tag responses
+            if (lowerMessage.includes('<h1>') || lowerMessage.includes('h1')) {
+                const explanationHTML = `
+                    <div class="html-explanation">
+                        <h4>That's right! We replaced the heading tags.</h4>
+                        <p>The &lt;h1&gt; to &lt;h6&gt; tags are used to define HTML headings.</p>
+                        <p>&lt;h1&gt; defines the most important heading. &lt;h6&gt; defines the least important heading.</p>
+                    </div>
+                `;
+                return {
+                    text: explanationHTML,
+                    isHTML: true,
+                    action: () => {
+                        setTimeout(() => {
+                            addChatbotMessage("Great job! Now try asking me to change something else on the page! 🎉", 'ai');
+                        }, 1000);
+                    }
+                };
+            }
             
             // Heading changes
             if (lowerMessage.includes('heading') || lowerMessage.includes('title')) {
