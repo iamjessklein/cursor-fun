@@ -529,6 +529,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         
         .chatbot-header h3 {
@@ -641,6 +642,22 @@
         
         .chatbot-toggle.active {
             background: #dc2626;
+        }
+        
+        .chatbot-toggle.inside {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            background: #1d4ed8;
+            z-index: 1000006;
+        }
+        
+        .chatbot-toggle.inside:hover {
+            background: #1e40af;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -960,11 +977,28 @@
             const toggle = document.getElementById('chatbot-toggle');
             
             if (container.style.display === 'flex') {
+                // Close chatbot
                 container.style.display = 'none';
-                toggle.classList.remove('active');
+                toggle.classList.remove('active', 'inside');
+                toggle.style.position = 'fixed';
+                toggle.style.bottom = '20px';
+                toggle.style.right = '20px';
+                toggle.style.width = '60px';
+                toggle.style.height = '60px';
+                toggle.style.fontSize = '24px';
+                toggle.style.background = '#2563eb';
             } else {
+                // Open chatbot
                 container.style.display = 'flex';
-                toggle.classList.add('active');
+                toggle.classList.add('active', 'inside');
+                toggle.style.position = 'absolute';
+                toggle.style.top = '8px';
+                toggle.style.right = '8px';
+                toggle.style.bottom = 'auto';
+                toggle.style.width = '40px';
+                toggle.style.height = '40px';
+                toggle.style.fontSize = '18px';
+                toggle.style.background = '#1d4ed8';
             }
         }
 
