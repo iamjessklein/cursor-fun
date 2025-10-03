@@ -1191,7 +1191,7 @@
             
             // Handle user responses to the follow-up question
             if (lowerMessage.includes('idk') || lowerMessage.includes("i don't know") || lowerMessage.includes('dunno') || lowerMessage.includes('no idea')) {
-                const helpMessage = "No worries! Let me help you learn. We edited one of these HTML tags:" + createHTMLTagChips();
+                const helpMessage = "No worries! Let me help you learn. Which one of these HTML tags do you think we edited?" + createHTMLTagChips();
                 return {
                     text: helpMessage,
                     isHTML: true
