@@ -243,6 +243,160 @@
             color: #666;
             font-size: 0.9em;
         }
+        
+        /* X-Ray Goggles Styles */
+        .goggles-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 999999;
+            pointer-events: none;
+        }
+        
+        .goggles-highlight {
+            position: absolute;
+            border: 2px solid #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+            pointer-events: none;
+            z-index: 1000000;
+        }
+        
+        .goggles-toolbar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #ff6b35;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            z-index: 1000001;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .goggles-toolbar button {
+            background: white;
+            color: #ff6b35;
+            border: none;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .goggles-toolbar button:hover {
+            background: #f0f0f0;
+        }
+        
+        .goggles-editor {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #ff6b35;
+            border-radius: 5px;
+            padding: 20px;
+            z-index: 1000002;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            min-width: 400px;
+            max-width: 80%;
+        }
+        
+        .goggles-editor h3 {
+            margin-top: 0;
+            color: #ff6b35;
+        }
+        
+        .goggles-editor textarea {
+            width: 100%;
+            height: 200px;
+            font-family: monospace;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .goggles-editor button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .goggles-editor button:hover {
+            background: #e55a2b;
+        }
+        
+        .goggles-help {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #ff6b35;
+            border-radius: 5px;
+            padding: 20px;
+            z-index: 1000003;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 500px;
+        }
+        
+        .goggles-help h3 {
+            margin-top: 0;
+            color: #ff6b35;
+        }
+        
+        .goggles-help ul {
+            text-align: left;
+        }
+        
+        .goggles-help li {
+            margin: 10px 0;
+        }
+        
+        .bookmarklet-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+            cursor: move;
+            user-select: none;
+        }
+        
+        .bookmarklet-button:hover {
+            background: #e55a2b;
+            color: white;
+        }
+        
+        .demo-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .demo-image {
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -275,17 +429,26 @@
             <h2>Make your first hack in three easy steps!</h2>
             
             <div class="step">
-                <strong>1.</strong> Copy this URL to your clipboard:
-                <div class="url-box">http://hackasaurus.toolness.org/en-US/goggles/</div>
+                <strong>1.</strong> Drag this bookmarklet to your bookmarks bar:
+                <div style="text-align: center; margin: 15px 0;">
+                    <a href="javascript:(function(){if(window.XRayGoggles){if(window.XRayGoggles.active){window.XRayGoggles.deactivate();}else{window.XRayGoggles.activate();}}else{var script=document.createElement('script');script.textContent='(function(){\"use strict\";window.XRayGoggles={active:false,overlay:null,highlight:null,toolbar:null,currentElement:null,history:[],historyIndex:-1,activate:function(){if(this.active)return;this.active=true;this.createOverlay();this.createToolbar();this.bindEvents();this.showHelp();},deactivate:function(){if(!this.active)return;this.active=false;this.removeOverlay();this.removeToolbar();this.unbindEvents();this.closeAllModals();},createOverlay:function(){this.overlay=document.createElement(\"div\");this.overlay.className=\"goggles-overlay\";this.overlay.style.cssText=\"position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.1);z-index:999999;pointer-events:none\";document.body.appendChild(this.overlay);this.highlight=document.createElement(\"div\");this.highlight.className=\"goggles-highlight\";this.highlight.style.cssText=\"position:absolute;border:2px solid #ff6b35;background:rgba(255,107,53,0.1);pointer-events:none;z-index:1000000\";document.body.appendChild(this.highlight);},removeOverlay:function(){if(this.overlay){this.overlay.remove();this.overlay=null;}if(this.highlight){this.highlight.remove();this.highlight=null;}},createToolbar:function(){this.toolbar=document.createElement(\"div\");this.toolbar.className=\"goggles-toolbar\";this.toolbar.style.cssText=\"position:fixed;top:10px;right:10px;background:#ff6b35;color:white;padding:10px;border-radius:5px;font-family:Arial,sans-serif;font-size:12px;z-index:1000001;box-shadow:0 2px 10px rgba(0,0,0,0.3)\";this.toolbar.innerHTML=\"<div>X-Ray Goggles Active</div><button onclick=\\\"XRayGoggles.showHelp()\\\">H - Help</button><button onclick=\\\"XRayGoggles.publish()\\\">P - Publish</button><button onclick=\\\"XRayGoggles.undo()\\\">Undo</button><button onclick=\\\"XRayGoggles.deactivate()\\\">Exit</button>\";document.body.appendChild(this.toolbar);},removeToolbar:function(){if(this.toolbar){this.toolbar.remove();this.toolbar=null;}},bindEvents:function(){this.mouseMoveHandler=this.handleMouseMove.bind(this);this.clickHandler=this.handleClick.bind(this);this.keyHandler=this.handleKeyPress.bind(this);document.addEventListener(\"mousemove\",this.mouseMoveHandler);document.addEventListener(\"click\",this.clickHandler);document.addEventListener(\"keydown\",this.keyHandler);},unbindEvents:function(){document.removeEventListener(\"mousemove\",this.mouseMoveHandler);document.removeEventListener(\"click\",this.clickHandler);document.removeEventListener(\"keydown\",this.keyHandler);},handleMouseMove:function(e){if(!this.active)return;var element=document.elementFromPoint(e.clientX,e.clientY);if(element&&element!==this.currentElement){this.currentElement=element;this.highlightElement(element);}},handleClick:function(e){if(!this.active)return;e.preventDefault();e.stopPropagation();if(this.currentElement){this.editElement(this.currentElement);}},handleKeyPress:function(e){if(!this.active)return;switch(e.key.toLowerCase()){case\"r\":e.preventDefault();if(this.currentElement){this.editElement(this.currentElement);}break;case\"p\":e.preventDefault();this.publish();break;case\"h\":e.preventDefault();this.showHelp();break;case\"escape\":e.preventDefault();this.closeAllModals();break;}},highlightElement:function(element){if(!this.highlight)return;var rect=element.getBoundingClientRect();this.highlight.style.left=(rect.left+window.scrollX)+\"px\";this.highlight.style.top=(rect.top+window.scrollY)+\"px\";this.highlight.style.width=rect.width+\"px\";this.highlight.style.height=rect.height+\"px\";this.highlight.style.display=\"block\";},editElement:function(element){this.saveToHistory();var editor=document.createElement(\"div\");editor.className=\"goggles-editor\";editor.style.cssText=\"position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #ff6b35;border-radius:5px;padding:20px;z-index:1000002;box-shadow:0 4px 20px rgba(0,0,0,0.3);min-width:400px;max-width:80%\";editor.innerHTML=\"<h3>Edit Element</h3><p><strong>Tag:</strong> \"+element.tagName.toLowerCase()+\"</p><p><strong>Current HTML:</strong></p><textarea id=\\\"goggles-html\\\" style=\\\"width:100%;height:200px;font-family:monospace;font-size:12px;border:1px solid #ccc;padding:10px;margin:10px 0\\\">\"+element.outerHTML+\"</textarea><br><button onclick=\\\"XRayGoggles.applyEdit(this)\\\" style=\\\"background:#ff6b35;color:white;border:none;padding:8px 16px;margin:5px;border-radius:3px;cursor:pointer\\\">Apply Changes</button><button onclick=\\\"XRayGoggles.closeModal(this)\\\" style=\\\"background:#ff6b35;color:white;border:none;padding:8px 16px;margin:5px;border-radius:3px;cursor:pointer\\\">Cancel</button>\";document.body.appendChild(editor);this.currentModal=editor;},applyEdit:function(button){var editor=button.closest(\".goggles-editor\");var textarea=editor.querySelector(\"textarea\");var newHTML=textarea.value;try{var temp=document.createElement(\"div\");temp.innerHTML=newHTML;var newElement=temp.firstElementChild;if(newElement&&this.currentElement){this.currentElement.parentNode.replaceChild(newElement,this.currentElement);this.currentElement=newElement;}this.closeModal(button);}catch(e){alert(\"Invalid HTML. Please check your syntax.\");}},publish:function(){var modal=document.createElement(\"div\");modal.className=\"goggles-editor\";modal.style.cssText=\"position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #ff6b35;border-radius:5px;padding:20px;z-index:1000002;box-shadow:0 4px 20px rgba(0,0,0,0.3);min-width:400px;max-width:80%\";modal.innerHTML=\"<h3>Publish Your Hack</h3><p>Your hack has been saved! Here is what you can do:</p><ul style=\\\"text-align:left\\\"><li>Share the URL with friends</li><li>Take a screenshot of your changes</li><li>Copy the modified HTML</li></ul><p><strong>Current URL:</strong> \"+window.location.href+\"</p><button onclick=\\\"XRayGoggles.closeModal(this)\\\" style=\\\"background:#ff6b35;color:white;border:none;padding:8px 16px;margin:5px;border-radius:3px;cursor:pointer\\\">Close</button>\";document.body.appendChild(modal);this.currentModal=modal;},showHelp:function(){var modal=document.createElement(\"div\");modal.className=\"goggles-help\";modal.style.cssText=\"position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #ff6b35;border-radius:5px;padding:20px;z-index:1000003;box-shadow:0 4px 20px rgba(0,0,0,0.3);max-width:500px\";modal.innerHTML=\"<h3>X-Ray Goggles Help</h3><ul><li><strong>Mouse over elements</strong> to highlight them</li><li><strong>Click or press R</strong> to edit an element</li><li><strong>Press P</strong> to publish your hack</li><li><strong>Press H</strong> to show this help</li><li><strong>Press Escape</strong> to close modals</li><li><strong>Undo button</strong> to revert changes</li></ul><p><em>Try editing any element on this page!</em></p><button onclick=\\\"XRayGoggles.closeModal(this)\\\" style=\\\"background:#ff6b35;color:white;border:none;padding:8px 16px;margin:5px;border-radius:3px;cursor:pointer\\\">Got it!</button>\";document.body.appendChild(modal);this.currentModal=modal;},saveToHistory:function(){if(this.currentElement){this.history=this.history.slice(0,this.historyIndex+1);this.history.push({element:this.currentElement,html:this.currentElement.outerHTML});this.historyIndex=this.history.length-1;}},undo:function(){if(this.historyIndex>0){this.historyIndex--;var state=this.history[this.historyIndex];if(state&&state.element&&state.element.parentNode){state.element.outerHTML=state.html;}}},closeModal:function(button){var modal=button.closest(\".goggles-editor, .goggles-help\");if(modal){modal.remove();}},closeAllModals:function(){var modals=document.querySelectorAll(\".goggles-editor, .goggles-help\");modals.forEach(function(modal){modal.remove();});}};})();\";document.head.appendChild(script);setTimeout(function(){if(window.XRayGoggles){window.XRayGoggles.activate();}},100);}})();" class="bookmarklet-button" draggable="true">🔍 X-Ray Goggles</a>
+                </div>
             </div>
             
             <div class="step">
-                <strong>2.</strong> Activate the X-Ray Goggles.
+                <strong>2.</strong> Click the bookmarklet to activate the X-Ray Goggles on any webpage.
             </div>
             
             <div class="step">
-                <strong>3.</strong> Move your mouse over the image on the right to see what it's made of, and tap <strong>R</strong> to make it point to the URL from your clipboard!
+                <strong>3.</strong> Try it out on the demo image below! Move your mouse over it and tap <strong>R</strong> to edit!
             </div>
+        </div>
+
+        <div class="demo-section">
+            <h3>Try the X-Ray Goggles!</h3>
+            <p>Click the bookmarklet above, then hover over this image and press <strong>R</strong> to edit it:</p>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkY2QjM1Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRjZCMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1ha2UgbWUhPC90ZXh0Pgo8L3N2Zz4=" alt="Demo image - Make me!" class="demo-image">
+            <p><em>This is a demo image. Try editing its source with the X-Ray Goggles!</em></p>
         </div>
 
         <div class="features">
@@ -380,5 +543,281 @@
             ©2011 by individual mozilla.org contributors. Content available under a Creative Commons license.
         </div>
     </div>
+
+    <script>
+        // X-Ray Goggles Implementation
+        (function() {
+            'use strict';
+            
+            // Create the X-Ray Goggles namespace
+            window.XRayGoggles = {
+                active: false,
+                overlay: null,
+                highlight: null,
+                toolbar: null,
+                currentElement: null,
+                clipboard: '',
+                history: [],
+                historyIndex: -1,
+                
+                activate: function() {
+                    if (this.active) return;
+                    
+                    this.active = true;
+                    this.createOverlay();
+                    this.createToolbar();
+                    this.bindEvents();
+                    this.showHelp();
+                },
+                
+                deactivate: function() {
+                    if (!this.active) return;
+                    
+                    this.active = false;
+                    this.removeOverlay();
+                    this.removeToolbar();
+                    this.unbindEvents();
+                    this.closeAllModals();
+                },
+                
+                createOverlay: function() {
+                    this.overlay = document.createElement('div');
+                    this.overlay.className = 'goggles-overlay';
+                    document.body.appendChild(this.overlay);
+                    
+                    this.highlight = document.createElement('div');
+                    this.highlight.className = 'goggles-highlight';
+                    document.body.appendChild(this.highlight);
+                },
+                
+                removeOverlay: function() {
+                    if (this.overlay) {
+                        this.overlay.remove();
+                        this.overlay = null;
+                    }
+                    if (this.highlight) {
+                        this.highlight.remove();
+                        this.highlight = null;
+                    }
+                },
+                
+                createToolbar: function() {
+                    this.toolbar = document.createElement('div');
+                    this.toolbar.className = 'goggles-toolbar';
+                    this.toolbar.innerHTML = `
+                        <div>X-Ray Goggles Active</div>
+                        <button onclick="XRayGoggles.showHelp()">H - Help</button>
+                        <button onclick="XRayGoggles.publish()">P - Publish</button>
+                        <button onclick="XRayGoggles.undo()">Undo</button>
+                        <button onclick="XRayGoggles.deactivate()">Exit</button>
+                    `;
+                    document.body.appendChild(this.toolbar);
+                },
+                
+                removeToolbar: function() {
+                    if (this.toolbar) {
+                        this.toolbar.remove();
+                        this.toolbar = null;
+                    }
+                },
+                
+                bindEvents: function() {
+                    this.mouseMoveHandler = this.handleMouseMove.bind(this);
+                    this.clickHandler = this.handleClick.bind(this);
+                    this.keyHandler = this.handleKeyPress.bind(this);
+                    
+                    document.addEventListener('mousemove', this.mouseMoveHandler);
+                    document.addEventListener('click', this.clickHandler);
+                    document.addEventListener('keydown', this.keyHandler);
+                },
+                
+                unbindEvents: function() {
+                    document.removeEventListener('mousemove', this.mouseMoveHandler);
+                    document.removeEventListener('click', this.clickHandler);
+                    document.removeEventListener('keydown', this.keyHandler);
+                },
+                
+                handleMouseMove: function(e) {
+                    if (!this.active) return;
+                    
+                    const element = document.elementFromPoint(e.clientX, e.clientY);
+                    if (element && element !== this.currentElement) {
+                        this.currentElement = element;
+                        this.highlightElement(element);
+                    }
+                },
+                
+                handleClick: function(e) {
+                    if (!this.active) return;
+                    
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (this.currentElement) {
+                        this.editElement(this.currentElement);
+                    }
+                },
+                
+                handleKeyPress: function(e) {
+                    if (!this.active) return;
+                    
+                    switch(e.key.toLowerCase()) {
+                        case 'r':
+                            e.preventDefault();
+                            if (this.currentElement) {
+                                this.editElement(this.currentElement);
+                            }
+                            break;
+                        case 'p':
+                            e.preventDefault();
+                            this.publish();
+                            break;
+                        case 'h':
+                            e.preventDefault();
+                            this.showHelp();
+                            break;
+                        case 'escape':
+                            e.preventDefault();
+                            this.closeAllModals();
+                            break;
+                    }
+                },
+                
+                highlightElement: function(element) {
+                    if (!this.highlight) return;
+                    
+                    const rect = element.getBoundingClientRect();
+                    this.highlight.style.left = (rect.left + window.scrollX) + 'px';
+                    this.highlight.style.top = (rect.top + window.scrollY) + 'px';
+                    this.highlight.style.width = rect.width + 'px';
+                    this.highlight.style.height = rect.height + 'px';
+                    this.highlight.style.display = 'block';
+                },
+                
+                editElement: function(element) {
+                    this.saveToHistory();
+                    
+                    const editor = document.createElement('div');
+                    editor.className = 'goggles-editor';
+                    editor.innerHTML = `
+                        <h3>Edit Element</h3>
+                        <p><strong>Tag:</strong> ${element.tagName.toLowerCase()}</p>
+                        <p><strong>Current HTML:</strong></p>
+                        <textarea id="goggles-html">${element.outerHTML}</textarea>
+                        <br>
+                        <button onclick="XRayGoggles.applyEdit(this)">Apply Changes</button>
+                        <button onclick="XRayGoggles.closeModal(this)">Cancel</button>
+                    `;
+                    
+                    document.body.appendChild(editor);
+                    this.currentModal = editor;
+                },
+                
+                applyEdit: function(button) {
+                    const editor = button.closest('.goggles-editor');
+                    const textarea = editor.querySelector('textarea');
+                    const newHTML = textarea.value;
+                    
+                    try {
+                        // Create a temporary container to parse the HTML
+                        const temp = document.createElement('div');
+                        temp.innerHTML = newHTML;
+                        const newElement = temp.firstElementChild;
+                        
+                        if (newElement && this.currentElement) {
+                            // Replace the element
+                            this.currentElement.parentNode.replaceChild(newElement, this.currentElement);
+                            this.currentElement = newElement;
+                        }
+                        
+                        this.closeModal(button);
+                    } catch (e) {
+                        alert('Invalid HTML. Please check your syntax.');
+                    }
+                },
+                
+                publish: function() {
+                    const modal = document.createElement('div');
+                    modal.className = 'goggles-editor';
+                    modal.innerHTML = `
+                        <h3>Publish Your Hack</h3>
+                        <p>Your hack has been saved! Here's what you can do:</p>
+                        <ul style="text-align: left;">
+                            <li>Share the URL with friends</li>
+                            <li>Take a screenshot of your changes</li>
+                            <li>Copy the modified HTML</li>
+                        </ul>
+                        <p><strong>Current URL:</strong> ${window.location.href}</p>
+                        <button onclick="XRayGoggles.closeModal(this)">Close</button>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    this.currentModal = modal;
+                },
+                
+                showHelp: function() {
+                    const modal = document.createElement('div');
+                    modal.className = 'goggles-help';
+                    modal.innerHTML = `
+                        <h3>X-Ray Goggles Help</h3>
+                        <ul>
+                            <li><strong>Mouse over elements</strong> to highlight them</li>
+                            <li><strong>Click or press R</strong> to edit an element</li>
+                            <li><strong>Press P</strong> to publish your hack</li>
+                            <li><strong>Press H</strong> to show this help</li>
+                            <li><strong>Press Escape</strong> to close modals</li>
+                            <li><strong>Undo button</strong> to revert changes</li>
+                        </ul>
+                        <p><em>Try editing the demo image above!</em></p>
+                        <button onclick="XRayGoggles.closeModal(this)">Got it!</button>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    this.currentModal = modal;
+                },
+                
+                saveToHistory: function() {
+                    if (this.currentElement) {
+                        this.history = this.history.slice(0, this.historyIndex + 1);
+                        this.history.push({
+                            element: this.currentElement,
+                            html: this.currentElement.outerHTML
+                        });
+                        this.historyIndex = this.history.length - 1;
+                    }
+                },
+                
+                undo: function() {
+                    if (this.historyIndex > 0) {
+                        this.historyIndex--;
+                        const state = this.history[this.historyIndex];
+                        if (state && state.element && state.element.parentNode) {
+                            state.element.outerHTML = state.html;
+                        }
+                    }
+                },
+                
+                closeModal: function(button) {
+                    const modal = button.closest('.goggles-editor, .goggles-help');
+                    if (modal) {
+                        modal.remove();
+                    }
+                },
+                
+                closeAllModals: function() {
+                    const modals = document.querySelectorAll('.goggles-editor, .goggles-help');
+                    modals.forEach(modal => modal.remove());
+                }
+            };
+            
+            // Auto-activate if this is the goggles page
+            if (window.location.pathname.includes('goggles') || window.location.search.includes('goggles=true')) {
+                setTimeout(() => {
+                    XRayGoggles.activate();
+                }, 1000);
+            }
+            
+        })();
+    </script>
 </body>
 </html>
