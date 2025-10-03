@@ -514,13 +514,13 @@
 
         <div class="steps">
             <div style="text-align: center; margin: 30px 0;">
-                <button onclick="installBookmarklet()" class="install-button">🔍 Install X-Ray Goggles</button>
+                <button onclick="toggleXRayGoggles()" class="install-button" id="goggles-toggle-btn">🔍 Activate X-Ray Goggles</button>
             </div>
         </div>
 
         <div class="demo-section">
             <h3>Try the X-Ray Goggles!</h3>
-            <p>Click the bookmarklet above, then hover over this image and press <strong>R</strong> to edit it:</p>
+            <p>Click the button above to activate X-Ray Goggles, then hover over any element and press <strong>R</strong> to edit it:</p>
             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkY2QjM1Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRjZCMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1ha2UgbWUhPC90ZXh0Pgo8L3N2Zz4=" alt="Demo image - Make me!" class="demo-image">
             <p><em>This is a demo image. Try editing its source with the X-Ray Goggles!</em></p>
         </div>
@@ -564,6 +564,24 @@
     </div>
 
     <script>
+        // Toggle X-Ray Goggles function
+        function toggleXRayGoggles() {
+            if (window.XRayGoggles) {
+                if (window.XRayGoggles.active) {
+                    window.XRayGoggles.deactivate();
+                    document.getElementById('goggles-toggle-btn').textContent = '🔍 Activate X-Ray Goggles';
+                } else {
+                    window.XRayGoggles.activate();
+                    document.getElementById('goggles-toggle-btn').textContent = '🔍 Deactivate X-Ray Goggles';
+                }
+            } else {
+                // Initialize X-Ray Goggles if not already loaded
+                initializeXRayGoggles();
+                window.XRayGoggles.activate();
+                document.getElementById('goggles-toggle-btn').textContent = '🔍 Deactivate X-Ray Goggles';
+            }
+        }
+        
         // Installation function
         function installBookmarklet() {
             document.getElementById('installModal').style.display = 'flex';
@@ -579,9 +597,9 @@
                 closeInstallModal();
             }
         });
-        // X-Ray Goggles Implementation
-        (function() {
-            'use strict';
+        // Initialize X-Ray Goggles function
+        function initializeXRayGoggles() {
+            if (window.XRayGoggles) return; // Already initialized
             
             // Create the X-Ray Goggles namespace
             window.XRayGoggles = {
@@ -844,14 +862,12 @@
                 }
             };
             
-            // Auto-activate if this is the goggles page
-            if (window.location.pathname.includes('goggles') || window.location.search.includes('goggles=true')) {
-                setTimeout(() => {
-                    XRayGoggles.activate();
-                }, 1000);
-            }
-            
-        })();
+        }
+        
+        // Initialize X-Ray Goggles on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeXRayGoggles();
+        });
     </script>
 </body>
 </html>
