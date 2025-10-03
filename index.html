@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>X-Ray Goggles - Hackasaurus</title>
+    <title>Cupcake Ipsum</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -714,47 +717,60 @@
             color: #0369a1;
             font-size: 13px;
         }
+        
+        /* Cupcake Ipsum Styles */
+        .cupcake-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 3.5em;
+            font-weight: 600;
+            color: #ff6b9d;
+            text-align: center;
+            margin: 40px 0;
+            text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.3);
+            background: linear-gradient(45deg, #ff6b9d, #ff9a9e, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cupcake-image {
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .cupcake-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .cupcake-paragraph {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5f8, #ffeef2);
+            border-radius: 20px;
+            border: 2px solid #ffb3d1;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #5a2d3a;
+            text-align: justify;
+            box-shadow: 0 4px 20px rgba(255, 107, 157, 0.1);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-
-        <h1>X-Ray Goggles</h1>
-        <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">Remix, make and share webpages instantly.</p>
-
-
-        <div class="steps">
-            <div style="text-align: center; margin: 30px 0;">
-                <button onclick="toggleXRayGoggles()" class="install-button" id="goggles-toggle-btn">🔍 Activate X-Ray Goggles</button>
-            </div>
-        </div>
-
-        <div class="demo-section">
-            <h3>Try the X-Ray Goggles!</h3>
-            <p>Click the button above to activate X-Ray Goggles, then hover over any element and press <strong>R</strong> to edit it:</p>
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkY2QjM1Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTEwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRjZCMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1ha2UgbWUhPC90ZXh0Pgo8L3N2Zz4=" alt="Demo image - Make me!" class="demo-image">
-            <p><em>This is a demo image. Try editing its source with the X-Ray Goggles!</em></p>
-        </div>
-
-        <div class="features">
-            <div class="feature">
-                <h3>… And then, the world!</h3>
-                <p>Install the goggles into your bookmarks bar and use them to remix <em>any</em> web page!</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Share with friends!</h3>
-                <p>Tap <strong>P</strong> to publish your hacks and share your creations with your friends.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Become a ninja!</h3>
-                <p>Tap <strong>H</strong> to learn about more awesome powers like undo/redo and computed style editing.</p>
-            </div>
-        </div>
-
-
-
+        <h1 class="cupcake-title">Cupcake Ipsum</h1>
+        
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImN1cGNha2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmY2Yjk5O3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZjlkYTQ7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPGVsbGlwc2UgY3g9IjE1MCIgY3k9IjIwMCIgcng9IjgwIiByeT0iNjAiIGZpbGw9InVybCgjY3VwY2FrZSkiLz4KPGVsbGlwc2UgY3g9IjE1MCIgY3k9IjE2MCIgcng9IjYwIiByeT0iNDAiIGZpbGw9IiNmZmZmZmYiLz4KPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTQwIiByPSI4IiBmaWxsPSIjZmY2Yjk5Ii8+CjxjaXJjbGUgY3g9IjE3MCIgY3k9IjE0MCIgcj0iOCIgZmlsbD0iI2ZmNmI5OSIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMjAiIHI9IjgiIGZpbGw9IiNmZjZiOTkiLz4KPHBhdGggZD0iTTE1MCAxMDBMMTQwIDkwTDE2MCA5MFoiIGZpbGw9IiNmZmZmZmYiLz4KPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTEwIiByPSI0IiBmaWxsPSIjMzMzIi8+CjxjaXJjbGUgY3g9IjE3MCIgY3k9IjExMCIgcj0iNCIgZmlsbD0iIzMzMyIvPgo8cGF0aCBkPSJNMTMwIDEyNUExMCAxMCAwIDAgMSAxNzAgMTI1IiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPg==" alt="Happy Cupcake" class="cupcake-image">
+        
+        <p class="cupcake-paragraph">
+            Donut croissant bear claw shortbread pastry. Gummi bears jelly beans croissant muffin tootsie roll sesame snaps cake. Carrot cake lollipop pudding jelly-o toffee gingerbread tootsie roll muffin macaroon. Pie pie marshmallow chocolate cake gummies caramels jelly beans donut. Apple pie carrot cake tiramisu topping cake topping danish shortbread fruitcake. Caramels candy canes ice cream brownie danish chocolate bar halvah gummies wafer. Cake marshmallow caramels danish bonbon. Ice cream bear claw sesame snaps toffee toffee fruitcake. Chocolate cake marzipan liquorice bonbon candy gummies. Ice cream chocolate cake cake wafer cake pudding. Bear claw donut gingerbread macaroon fruitcake brownie. Carrot cake croissant gingerbread tart cheesecake biscuit dragée gummi bears. Lollipop cake croissant cake powder halvah dessert. Oat cake icing ice cream oat cake carrot cake halvah gummies.
+        </p>
     </div>
 
     <!-- AI Chatbot -->
@@ -767,12 +783,13 @@
         </div>
         <div class="chatbot-messages" id="chatbot-messages">
             <div class="chatbot-message ai">
-                Hi! I'm your AI web editor assistant. I can help you edit elements on this page! Try asking me things like:
+                Hi! I'm your AI web editor assistant. I can help you edit elements on this cupcake page! Try asking me things like:
                 <br><br>
-                • "Change the heading to 'Hello World'"
-                • "Make the button red"
-                • "Add a border to the image"
-                • "Change the font size of the text"
+                • "Change the cupcake title to 'Hello World'"
+                • "Add a border to the cupcake image"
+                • "Make the cupcake image bigger"
+                • "Change the title color to blue"
+                • "Make the cupcake text smaller"
             </div>
         </div>
         <div class="chatbot-input-container">
@@ -1207,7 +1224,7 @@
                     return {
                         text: "I'll change the main heading to 'Hello World' for you!",
                         action: () => {
-                            const heading = document.querySelector('h1');
+                            const heading = document.querySelector('.cupcake-title');
                             if (heading) {
                                 heading.textContent = 'Hello World';
                                 highlightElementForAI(heading);
@@ -1224,7 +1241,7 @@
                         return {
                             text: `I'll change the heading to "${newText}"!`,
                             action: () => {
-                                const heading = document.querySelector('h1');
+                                const heading = document.querySelector('.cupcake-title');
                                 if (heading) {
                                     heading.textContent = newText;
                                     highlightElementForAI(heading);
@@ -1275,15 +1292,15 @@
             }
             
             // Image changes
-            if (lowerMessage.includes('image') || lowerMessage.includes('picture')) {
+            if (lowerMessage.includes('image') || lowerMessage.includes('picture') || lowerMessage.includes('cupcake')) {
                 if (lowerMessage.includes('border')) {
                     return {
-                        text: "I'll add a border to the demo image!",
+                        text: "I'll add a border to the cupcake image!",
                         action: () => {
-                            const image = document.querySelector('.demo-image');
+                            const image = document.querySelector('.cupcake-image');
                             if (image) {
-                                image.style.border = '3px solid #2563eb';
-                                image.style.borderRadius = '12px';
+                                image.style.border = '5px solid #ff6b9d';
+                                image.style.borderRadius = '25px';
                                 highlightElementForAI(image);
                                 // Add follow-up question after action
                                 setTimeout(() => {
@@ -1294,11 +1311,26 @@
                     };
                 } else if (lowerMessage.includes('bigger') || lowerMessage.includes('larger')) {
                     return {
-                        text: "I'll make the image bigger!",
+                        text: "I'll make the cupcake image bigger!",
                         action: () => {
-                            const image = document.querySelector('.demo-image');
+                            const image = document.querySelector('.cupcake-image');
                             if (image) {
-                                image.style.transform = 'scale(1.2)';
+                                image.style.transform = 'scale(1.3)';
+                                highlightElementForAI(image);
+                                // Add follow-up question after action
+                                setTimeout(() => {
+                                    addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
+                                }, 1000);
+                            }
+                        }
+                    };
+                } else if (lowerMessage.includes('smaller')) {
+                    return {
+                        text: "I'll make the cupcake image smaller!",
+                        action: () => {
+                            const image = document.querySelector('.cupcake-image');
+                            if (image) {
+                                image.style.transform = 'scale(0.8)';
                                 highlightElementForAI(image);
                                 // Add follow-up question after action
                                 setTimeout(() => {
@@ -1311,15 +1343,15 @@
             }
             
             // Text changes
-            if (lowerMessage.includes('text') || lowerMessage.includes('font')) {
+            if (lowerMessage.includes('text') || lowerMessage.includes('font') || lowerMessage.includes('paragraph')) {
                 if (lowerMessage.includes('bigger') || lowerMessage.includes('larger')) {
                     return {
-                        text: "I'll make the text bigger!",
+                        text: "I'll make the cupcake text bigger!",
                         action: () => {
-                            const tagline = document.querySelector('p[style*="text-align: center"]');
-                            if (tagline) {
-                                tagline.style.fontSize = '1.5em';
-                                highlightElementForAI(tagline);
+                            const paragraph = document.querySelector('.cupcake-paragraph');
+                            if (paragraph) {
+                                paragraph.style.fontSize = '1.3em';
+                                highlightElementForAI(paragraph);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1329,12 +1361,12 @@
                     };
                 } else if (lowerMessage.includes('smaller')) {
                     return {
-                        text: "I'll make the text smaller!",
+                        text: "I'll make the cupcake text smaller!",
                         action: () => {
-                            const tagline = document.querySelector('p[style*="text-align: center"]');
-                            if (tagline) {
-                                tagline.style.fontSize = '1em';
-                                highlightElementForAI(tagline);
+                            const paragraph = document.querySelector('.cupcake-paragraph');
+                            if (paragraph) {
+                                paragraph.style.fontSize = '0.9em';
+                                highlightElementForAI(paragraph);
                                 // Add follow-up question after action
                                 setTimeout(() => {
                                     addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
@@ -1349,11 +1381,12 @@
             if (lowerMessage.includes('color') || lowerMessage.includes('colour')) {
                 if (lowerMessage.includes('blue')) {
                     return {
-                        text: "I'll change the main heading to blue!",
+                        text: "I'll change the cupcake title to blue!",
                         action: () => {
-                            const heading = document.querySelector('h1');
+                            const heading = document.querySelector('.cupcake-title');
                             if (heading) {
                                 heading.style.color = '#2563eb';
+                                heading.style.background = 'linear-gradient(45deg, #2563eb, #3b82f6, #60a5fa)';
                                 highlightElementForAI(heading);
                                 // Add follow-up question after action
                                 setTimeout(() => {
@@ -1364,11 +1397,28 @@
                     };
                 } else if (lowerMessage.includes('red')) {
                     return {
-                        text: "I'll change the main heading to red!",
+                        text: "I'll change the cupcake title to red!",
                         action: () => {
-                            const heading = document.querySelector('h1');
+                            const heading = document.querySelector('.cupcake-title');
                             if (heading) {
                                 heading.style.color = '#dc2626';
+                                heading.style.background = 'linear-gradient(45deg, #dc2626, #ef4444, #f87171)';
+                                highlightElementForAI(heading);
+                                // Add follow-up question after action
+                                setTimeout(() => {
+                                    addChatbotMessage("How do you think we did that using code? 🤔", 'ai');
+                                }, 1000);
+                            }
+                        }
+                    };
+                } else if (lowerMessage.includes('green')) {
+                    return {
+                        text: "I'll change the cupcake title to green!",
+                        action: () => {
+                            const heading = document.querySelector('.cupcake-title');
+                            if (heading) {
+                                heading.style.color = '#16a34a';
+                                heading.style.background = 'linear-gradient(45deg, #16a34a, #22c55e, #4ade80)';
                                 highlightElementForAI(heading);
                                 // Add follow-up question after action
                                 setTimeout(() => {
@@ -1382,7 +1432,7 @@
             
             // Default response
             return {
-                text: "I can help you edit elements on this page! Try asking me to:\n\n• Change the heading text\n• Make the button red or green\n• Add a border to the image\n• Make text bigger or smaller\n• Change colors\n\nBe specific about what you want to change!"
+                text: "I can help you edit elements on this cupcake page! Try asking me to:\n\n• Change the cupcake title text\n• Add a border to the cupcake image\n• Make the cupcake image bigger or smaller\n• Make the cupcake text bigger or smaller\n• Change the title colors (blue, red, green)\n\nBe specific about what you want to change!"
             };
         }
 
